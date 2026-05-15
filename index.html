@@ -6,81 +6,46 @@
     <title>Legendary Ace | Latest News</title>
     <script src="https://tailwindcss.com"></script>
     <script>
-        // Tailwind Custom Configurations for Smooth Theme Inversion Styling
         tailwind.config = {
             darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        zinc: {
-                            750: '#3f3f46',
-                        }
-                    }
-                }
-            }
+            theme: { extend: { colors: { zinc: { 750: '#3f3f46' } } } }
         }
     </script>
 </head>
-<!-- Initialized with 'dark' class by default. Toggling this class updates the entire UI. -->
 <body class="dark bg-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 font-sans transition-colors duration-300">
     
     <!-- Top Navigation Bar -->
     <nav class="p-6 bg-white dark:bg-zinc-950 flex justify-between items-center border-b-2 border-red-500 sticky top-0 z-50 shadow-lg transition-colors duration-300">
-        <!-- Spacer to balance layout centering -->
         <div class="w-10"></div> 
-        
-        <!-- Navigation Links -->
         <div class="flex space-x-12">
             <a href="index.html" class="text-red-500 dark:text-red-400 font-black tracking-wide border-b-2 border-red-500 dark:border-red-400 pb-1">NEWS</a>
             <a href="leagues.html" class="text-zinc-700 dark:text-zinc-300 hover:text-red-500 dark:hover:text-red-400 font-semibold transition-colors duration-200">LEAGUES</a>
             <a href="players.html" class="text-zinc-700 dark:text-zinc-300 hover:text-red-500 dark:hover:text-red-400 font-semibold transition-colors duration-200">PLAYERS</a>
             <a href="about.html" class="text-zinc-700 dark:text-zinc-300 hover:text-red-500 dark:hover:text-red-400 font-semibold transition-colors duration-200">ABOUT</a>
         </div>
-
-        <!-- Light/Dark Mode Interactive Toggle Button -->
-        <button onclick="toggleTheme()" class="p-2.5 rounded-xl bg-zinc-200 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-all active:scale-95" aria-label="Toggle Theme">
-            <!-- Sun Icon (Visible in Dark Mode) -->
-            <svg id="sun-icon" class="w-5 h-5 text-amber-400 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
-            </svg>
-            <!-- Moon Icon (Visible in Light Mode) -->
-            <svg id="moon-icon" class="w-5 h-5 text-zinc-700 dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-            </svg>
+        <button onclick="toggleTheme()" class="p-2.5 rounded-xl bg-zinc-200 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-all active:scale-95">
+            <svg id="sun-icon" class="w-5 h-5 text-amber-400 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
+            <svg id="moon-icon" class="w-5 h-5 text-zinc-700 dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
         </button>
     </nav>
 
     <main class="max-w-4xl mx-auto py-12 px-6">
-        <!-- Main header with enhanced gradient text -->
         <h1 class="text-6xl font-black mb-8 italic tracking-tight text-zinc-900 dark:text-white">
             TRANSFER <span class="bg-gradient-to-r from-red-600 to-orange-500 dark:from-red-500 dark:to-orange-400 bg-clip-text text-transparent">WATCH</span>
         </h1>
 
-        <!-- NEW COMPONENT: Live Match Countdown Timer Module -->
+        <!-- Live Match Countdown Timer Module -->
         <section class="mb-10 bg-gradient-to-br from-zinc-900 to-zinc-950 text-white p-6 rounded-2xl border border-zinc-800 shadow-md">
             <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                 <div>
                     <span class="text-xs font-bold uppercase tracking-widest text-red-400">Next Big Match Matchday</span>
                     <h4 class="text-xl font-extrabold mt-1">Real Madrid vs. Barcelona</h4>
                 </div>
-                <!-- Countdown Digit Slots -->
                 <div class="flex space-x-3 text-center font-mono">
-                    <div class="bg-zinc-800 border border-zinc-700 px-3 py-2 rounded-xl min-w-[55px]">
-                        <div id="timer-days" class="text-2xl font-black text-red-400">00</div>
-                        <div class="text-[9px] uppercase tracking-wider text-zinc-400 font-sans">Days</div>
-                    </div>
-                    <div class="bg-zinc-800 border border-zinc-700 px-3 py-2 rounded-xl min-w-[55px]">
-                        <div id="timer-hours" class="text-2xl font-black text-white">00</div>
-                        <div class="text-[9px] uppercase tracking-wider text-zinc-400 font-sans">Hrs</div>
-                    </div>
-                    <div class="bg-zinc-800 border border-zinc-700 px-3 py-2 rounded-xl min-w-[55px]">
-                        <div id="timer-minutes" class="text-2xl font-black text-white">00</div>
-                        <div class="text-[9px] uppercase tracking-wider text-zinc-400 font-sans">Min</div>
-                    </div>
-                    <div class="bg-zinc-800 border border-zinc-700 px-3 py-2 rounded-xl min-w-[55px]">
-                        <div id="timer-seconds" class="text-2xl font-black text-red-500 animate-pulse">00</div>
-                        <div class="text-[9px] uppercase tracking-wider text-zinc-400 font-sans">Sec</div>
-                    </div>
+                    <div class="bg-zinc-800 border border-zinc-700 px-3 py-2 rounded-xl min-w-[55px]"><div id="timer-days" class="text-2xl font-black text-red-400">00</div><div class="text-[9px] uppercase tracking-wider text-zinc-400 font-sans">Days</div></div>
+                    <div class="bg-zinc-800 border border-zinc-700 px-3 py-2 rounded-xl min-w-[55px]"><div id="timer-hours" class="text-2xl font-black text-white">00</div><div class="text-[9px] uppercase tracking-wider text-zinc-400 font-sans">Hrs</div></div>
+                    <div class="bg-zinc-800 border border-zinc-700 px-3 py-2 rounded-xl min-w-[55px]"><div id="timer-minutes" class="text-2xl font-black text-white">00</div><div class="text-[9px] uppercase tracking-wider text-zinc-400 font-sans">Min</div></div>
+                    <div class="bg-zinc-800 border border-zinc-700 px-3 py-2 rounded-xl min-w-[55px]"><div id="timer-seconds" class="text-2xl font-black text-red-500 animate-pulse">00</div><div class="text-[9px] uppercase tracking-wider text-zinc-400 font-sans">Sec</div></div>
                 </div>
             </div>
         </section>
@@ -92,170 +57,58 @@
             <button onclick="filterNews('done')" id="btn-done" class="px-5 py-2 rounded-full text-sm font-bold bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-300 border border-zinc-300 dark:border-transparent hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all">Done Deals</button>
         </div>
 
-        <!-- News Feed Container -->
+        <!-- TARGET CONTAINER ID APPLIED BELOW FOR PYTHON AUTOMATION SCRIPT -->
         <div id="news-feed" class="space-y-6">
-            <!-- Article 1 -->
-            <div class="news-card bg-white dark:bg-zinc-800 p-8 rounded-2xl border-l-8 border-red-500 shadow-md hover:shadow-xl dark:hover:bg-zinc-750 border border-zinc-200 dark:border-transparent transition-all duration-300 transform hover:-translate-y-1" data-category="rumor">
-                <div class="flex justify-between items-center">
-                    <span class="text-xs text-red-500 dark:text-red-400 font-bold uppercase tracking-widest">May 15, 2026</span>
-                    <span class="px-2.5 py-1 rounded bg-red-100 dark:bg-red-950 text-red-600 dark:text-red-400 text-xs font-bold uppercase">Rumor</span>
-                </div>
-                <h2 class="text-3xl font-extrabold mt-2 text-zinc-900 dark:text-white">Lewandowski to Saudi?</h2>
-                <p class="text-zinc-600 dark:text-zinc-300 mt-3 text-lg leading-relaxed">Reports out of Barcelona suggest a massive €100m+ package is being prepared by Al-Hilal for the legendary striker's final career move.</p>
-                <!-- Interactive Like System -->
-                <div class="mt-6 flex items-center space-x-4 border-t border-zinc-200 dark:border-zinc-700 pt-4">
-                    <button onclick="toggleLike(this)" class="flex items-center space-x-2 text-zinc-400 hover:text-red-500 transition-colors group">
-                        <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-                        <span class="text-sm font-semibold count text-zinc-600 dark:text-zinc-400">42</span>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Article 2 -->
-            <div class="news-card bg-white dark:bg-zinc-800 p-8 rounded-2xl border-l-8 border-blue-500 shadow-md hover:shadow-xl dark:hover:bg-zinc-750 border border-zinc-200 dark:border-transparent transition-all duration-300 transform hover:-translate-y-1" data-category="done">
-                <div class="flex justify-between items-center">
-                    <span class="text-xs text-blue-500 dark:text-blue-400 font-bold uppercase tracking-widest">May 15, 2026</span>
-                    <span class="px-2.5 py-1 rounded bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase">Done Deal</span>
-                </div>
-                <h2 class="text-3xl font-extrabold mt-2 text-zinc-900 dark:text-white">Anthony Gordon Agrees Bayern Munich Terms</h2>
-                <p class="text-zinc-600 dark:text-zinc-300 mt-3 text-lg leading-relaxed">The Newcastle winger has reportedly reached a personal agreement to join the German giants for the 26/27 season.</p>
-                <div class="mt-6 flex items-center space-x-4 border-t border-zinc-200 dark:border-zinc-700 pt-4">
-                    <button onclick="toggleLike(this)" class="flex items-center space-x-2 text-zinc-400 hover:text-red-500 transition-colors group">
-                        <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-                        <span class="text-sm font-semibold count text-zinc-600 dark:text-zinc-400">128</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Article 3 -->
-            <div class="news-card bg-white dark:bg-zinc-800 p-8 rounded-2xl border-l-8 border-red-500 shadow-md hover:shadow-xl dark:hover:bg-zinc-750 border border-zinc-200 dark:border-transparent transition-all duration-300 transform hover:-translate-y-1" data-category="rumor">
-                <div class="flex justify-between items-center">
-                    <span class="text-xs text-red-500 dark:text-red-400 font-bold uppercase tracking-widest">May 14, 2026</span>
-                    <span class="px-2.5 py-1 rounded bg-red-100 dark:bg-red-950 text-red-600 dark:text-red-400 text-xs font-bold uppercase">Rumor</span>
-                </div>
-                <h2 class="text-3xl font-extrabold mt-2 text-zinc-900 dark:text-white">Real Madrid Target Saliba</h2>
-                <p class="text-zinc-600 dark:text-zinc-300 mt-3 text-lg leading-relaxed">Los Blancos are closely tracking the Arsenal defender. Reports state an opening bid could be planned for early June to test the Gunners' resolve.</p>
-                <div class="mt-6 flex items-center space-x-4 border-t border-zinc-200 dark:border-zinc-700 pt-4">
-                    <button onclick="toggleLike(this)" class="flex items-center space-x-2 text-zinc-400 hover:text-red-500 transition-colors group">
-                        <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-                        <span class="text-sm font-semibold count text-zinc-600 dark:text-zinc-400">89</span>
-                    </button>
-                </div>
-            </div>
+            <!-- Python script will safely clear and inject all articles right here -->
         </div>
-
-        <!-- Newsletter Section -->
-        <section class="mt-16 bg-white dark:bg-zinc-950 p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 text-center relative overflow-hidden transition-colors duration-300">
-            <div class="absolute -top-10 -left-10 w-40 h-40 bg-red-500/10 rounded-full blur-3xl"></div>
-            <h3 class="text-2xl font-black mb-2 text-zinc-900 dark:text-white">NEVER MISS A BREAKING TRANSFER</h3>
-            <p class="text-zinc-600 dark:text-zinc-400 mb-6 max-w-md mx-auto">Get instant notifications sent directly to your device the second a contract is signed.</p>
-            <form id="newsletter-form" onsubmit="handleSubscribe(event)" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
-                <input type="email" required placeholder="Enter your email address" class="flex-1 px-5 py-3 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white border border-zinc-300 dark:border-zinc-700 focus:outline-none focus:border-red-500 transition-colors">
-                <button type="submit" class="px-6 py-3 rounded-xl bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-orange-500 font-bold tracking-wide shadow-lg text-white transition-all active:scale-95">Subscribe</button>
-            </form>
-            <div id="subscribe-success" class="hidden text-green-500 dark:text-green-400 font-bold mt-4 anonymity-pulse">✓ Successfully Subscribed to Transfer Alerts!</div>
-        </section>
     </main>
 
     <div class="fixed bottom-4 right-4 text-zinc-400 dark:text-zinc-500 text-[10px] font-mono tracking-widest uppercase">legendary ace</div>
 
-    <!-- Interactivity Core Scripts -->
     <script>
-        // 1. Dark/Light Theme Switching Engine
-        function toggleTheme() {
-            const body = document.body;
-            const countLabelSpans = document.querySelectorAll('.count');
-            
-            if (body.classList.contains('dark')) {
-                body.classList.remove('dark');
-                // Adjust dynamic element styles for high-visibility light theme layout
-                countLabelSpans.forEach(span => span.classList.replace('text-zinc-400', 'text-zinc-600'));
-            } else {
-                body.classList.add('dark');
-                countLabelSpans.forEach(span => span.classList.replace('text-zinc-600', 'text-zinc-400'));
-            }
-        }
+        function toggleTheme() { document.body.classList.toggle('dark'); }
 
-        // 2. Real-Time Target Countdown Timer Logic
-        // Configured for a future demonstration target date
         const matchDate = new Date("Dec 31, 2026 20:00:00").getTime();
-
-        const runTimer = setInterval(function() {
-            const now = new Date().getTime();
-            const gap = matchDate - now;
-
-            // Math transformations for time units
-            const d = Math.floor(gap / (1000 * 60 * 60 * 24));
-            const h = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((gap % (1000 * 60)) / 1000);
-
-            // Print calculated layout results to corresponding layout ID blocks
-            document.getElementById("timer-days").innerHTML = d.toString().padStart(2, '0');
-            document.getElementById("timer-hours").innerHTML = h.toString().padStart(2, '0');
-            document.getElementById("timer-minutes").innerHTML = m.toString().padStart(2, '0');
-            document.getElementById("timer-seconds").innerHTML = s.toString().padStart(2, '0');
-
-            // Handling timer countdown ending exception cleanup
-            if (gap < 0) {
-                clearInterval(runTimer);
-                document.getElementById("timer-days").innerHTML = "00";
-                document.getElementById("timer-hours").innerHTML = "00";
-                document.getElementById("timer-minutes").innerHTML = "00";
-                document.getElementById("timer-seconds").innerHTML = "00";
-            }
+        setInterval(function() {
+            const gap = matchDate - new Date().getTime();
+            document.getElementById("timer-days").innerHTML = Math.floor(gap / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+            document.getElementById("timer-hours").innerHTML = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+            document.getElementById("timer-minutes").innerHTML = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+            document.getElementById("timer-seconds").innerHTML = Math.floor((gap % (1000 * 60)) / 1000).toString().padStart(2, '0');
         }, 1000);
 
-        // 3. Post Entry Upvote Like System Configuration
         function toggleLike(button) {
             const countSpan = button.querySelector('.count');
             const svgElement = button.querySelector('svg');
             let currentCount = parseInt(countSpan.textContent);
-            
-            if (button.classList.contains('liked')) {
-                button.classList.remove('liked', 'text-red-500');
-                svgElement.setAttribute('fill', 'none');
-                countSpan.textContent = currentCount - 1;
-            } else {
-                button.classList.add('liked', 'text-red-500');
+            if (button.classList.toggle('liked')) {
+                button.classList.add('text-red-500');
                 svgElement.setAttribute('fill', 'currentColor');
                 countSpan.textContent = currentCount + 1;
+            } else {
+                button.classList.remove('text-red-500');
+                svgElement.setAttribute('fill', 'none');
+                countSpan.textContent = currentCount - 1;
             }
         }
 
-        // 4. Client-side Navigation Feed Category Sorter
         function filterNews(category) {
             const cards = document.querySelectorAll('.news-card');
             const buttons = document.querySelectorAll('[id^="btn-"]');
-            const isDark = document.body.classList.contains('dark');
-            
             buttons.forEach(btn => {
                 btn.classList.remove('bg-red-500', 'text-white', 'scale-105', 'shadow-md');
                 btn.classList.add('bg-white', 'dark:bg-zinc-800', 'text-zinc-800', 'dark:text-zinc-300');
             });
-            
-            const activeBtn = document.getElementById(`btn-${category}`);
-            activeBtn.classList.add('bg-red-500', 'text-white', 'scale-105', 'shadow-md');
-            activeBtn.classList.remove('bg-white', 'dark:bg-zinc-800', 'text-zinc-800', 'dark:text-zinc-300');
-
+            document.getElementById(`btn-${category}`).classList.add('bg-red-500', 'text-white', 'scale-105', 'shadow-md');
             cards.forEach(card => {
                 if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.style.display = 'block';
+                    card.style.setProperty('display', 'block', 'important');
                     setTimeout(() => card.style.opacity = '1', 10);
                 } else {
                     card.style.opacity = '0';
-                    card.style.display = 'none';
+                    card.style.setProperty('display', 'none', 'important');
                 }
             });
-        }
-
-        // 5. Subscription Alert Execution Interactivity
-        function handleSubscribe(event) {
-            event.preventDefault();
-            document.getElementById('newsletter-form').reset();
-            const successDiv = document.getElementById('subscribe-success');
-            successDiv.classList.remove('hidden');
-            setTimeout(() => successDiv.classList.add('hidden'), 5000);
         }
     </script>
 </body>

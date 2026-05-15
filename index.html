@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Legendary Ace | Transfer Watch</title>
-
-    <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <script>
-        tailwind.config = {
+<html class="dark" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Legendary Ace | Transfer Watch
+  </title>
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <script>
+   tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
@@ -21,10 +22,9 @@
                 }
             }
         }
-    </script>
-
-    <style>
-        * {
+  </script>
+  <style>
+   * {
             scroll-behavior: smooth;
         }
 
@@ -48,279 +48,195 @@
         .glass {
             backdrop-filter: blur(14px);
         }
-    </style>
-</head>
-
-<body class="bg-zinc-100 text-zinc-900 dark:bg-[#0a0a0a] dark:text-zinc-100 font-sans transition-all duration-500 min-h-screen overflow-x-hidden">
-
-    <!-- Background Texture -->
-    <div class="fixed inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(circle,#ffffff_1px,transparent_1px)] bg-[size:22px_22px]"></div>
-
-    <!-- NAVBAR -->
-    <nav class="sticky top-0 z-50 bg-white/80 dark:bg-black/70 glass border-b border-zinc-200 dark:border-zinc-800 shadow-xl transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
-
-            <div class="text-xl font-black tracking-widest uppercase">
-                <span class="text-red-500">Legendary</span>
-                <span class="dark:text-white">Ace</span>
-            </div>
-
-            <div class="flex items-center gap-10 text-sm font-bold tracking-wide">
-
-                <a href="index.html"
-                   class="text-red-500 dark:text-red-400 transition-colors">
-                    NEWS
-                </a>
-
-                <a href="leagues.html"
-                   class="text-zinc-700 dark:text-zinc-300 hover:text-red-500 dark:hover:text-red-400 transition-colors">
-                    LEAGUES
-                </a>
-
-                <a href="players.html"
-                   class="text-zinc-700 dark:text-zinc-300 hover:text-red-500 dark:hover:text-red-400 transition-colors">
-                    PLAYERS
-                </a>
-
-                <a href="about.html"
-                   class="text-zinc-700 dark:text-zinc-300 hover:text-red-500 dark:hover:text-red-400 transition-colors">
-                    ABOUT
-                </a>
-            </div>
-
-            <!-- THEME BUTTON -->
-            <button onclick="toggleTheme()"
-                class="group p-3 rounded-2xl bg-zinc-200 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 hover:scale-105 transition-all duration-300">
-
-                <!-- SUN -->
-                <svg id="sun-icon"
-                    class="w-5 h-5 text-amber-400 hidden dark:block"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24">
-
-                    <path stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z">
-                    </path>
-                </svg>
-
-                <!-- MOON -->
-                <svg id="moon-icon"
-                    class="w-5 h-5 text-zinc-700 dark:hidden"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24">
-
-                    <path stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
-                    </path>
-                </svg>
-            </button>
-        </div>
-    </nav>
-
-    <!-- MAIN -->
-    <main class="max-w-5xl mx-auto px-6 py-12">
-
-        <!-- HERO -->
-        <section class="mb-12">
-            <h1 class="text-5xl md:text-7xl font-black italic leading-none tracking-tight">
-
-                TRANSFER
-
-                <span class="bg-gradient-to-r from-red-500 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
-                    WATCH
-                </span>
-            </h1>
-
-            <p class="mt-4 text-zinc-600 dark:text-zinc-400 text-lg max-w-2xl leading-relaxed">
-                The latest transfer movements, elite rumors, completed deals,
-                and football market predictions from across Europe.
-            </p>
-        </section>
-
-        <!-- COUNTDOWN -->
-        <section class="relative overflow-hidden mb-12 bg-gradient-to-br from-zinc-950 via-zinc-900 to-black p-8 rounded-3xl border border-zinc-800 shadow-2xl">
-
-            <!-- Glow -->
-            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_right,#ef4444,transparent_35%)]"></div>
-
-            <div class="relative flex flex-col md:flex-row justify-between items-center gap-6">
-
-                <div>
-                    <span class="text-xs font-black uppercase tracking-[0.25em] text-red-400">
-                        Next Big Match
-                    </span>
-
-                    <h2 class="text-3xl md:text-4xl font-black mt-2">
-                        Real Madrid vs Barcelona
-                    </h2>
-
-                    <p class="mt-2 text-zinc-400">
-                        El Clasico returns under the lights.
-                    </p>
-                </div>
-
-                <!-- TIMER -->
-                <div class="flex gap-3 text-center">
-
-                    <div class="bg-zinc-900/80 border border-zinc-700 backdrop-blur-md px-4 py-3 rounded-2xl min-w-[78px] shadow-lg">
-                        <div id="timer-days" class="text-3xl font-black text-red-400">
-                            00
-                        </div>
-                        <div class="text-[10px] uppercase tracking-widest text-zinc-500 mt-1">
-                            Days
-                        </div>
-                    </div>
-
-                    <div class="bg-zinc-900/80 border border-zinc-700 backdrop-blur-md px-4 py-3 rounded-2xl min-w-[78px] shadow-lg">
-                        <div id="timer-hours" class="text-3xl font-black">
-                            00
-                        </div>
-                        <div class="text-[10px] uppercase tracking-widest text-zinc-500 mt-1">
-                            Hrs
-                        </div>
-                    </div>
-
-                    <div class="bg-zinc-900/80 border border-zinc-700 backdrop-blur-md px-4 py-3 rounded-2xl min-w-[78px] shadow-lg">
-                        <div id="timer-minutes" class="text-3xl font-black">
-                            00
-                        </div>
-                        <div class="text-[10px] uppercase tracking-widest text-zinc-500 mt-1">
-                            Min
-                        </div>
-                    </div>
-
-                    <div class="bg-zinc-900/80 border border-zinc-700 backdrop-blur-md px-4 py-3 rounded-2xl min-w-[78px] shadow-lg">
-                        <div id="timer-seconds" class="text-3xl font-black text-red-500 animate-pulse">
-                            00
-                        </div>
-                        <div class="text-[10px] uppercase tracking-widest text-zinc-500 mt-1">
-                            Sec
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FILTER BUTTONS -->
-        <div class="flex flex-wrap gap-3 mb-10">
-
-            <button id="btn-all"
-                onclick="filterNews('all')"
-                class="filter-btn active-filter px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300">
-                All News
-            </button>
-
-            <button id="btn-happening"
-                onclick="filterNews('happening')"
-                class="filter-btn px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300">
-                What's Happening
-            </button>
-
-            <button id="btn-going-to-happen"
-                onclick="filterNews('going-to-happen')"
-                class="filter-btn px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300">
-                What's Gonna Happen
-            </button>
-
-            <button id="btn-will-not-happen"
-                onclick="filterNews('will-not-happen')"
-                class="filter-btn px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300">
-                What Won't Happen
-            </button>
-        </div>
-
-        <!-- NEWS FEED -->
-        <div id="news-feed" class="space-y-7">
-
-            <!-- CARD 1 -->
-            <div class="news-card bg-white dark:bg-zinc-900 p-8 rounded-3xl border-l-8 border-red-500 shadow-lg hover:shadow-red-500/20"
-                 data-category="happening">
-
-                <div class="flex justify-between items-center">
-                    <span class="text-xs uppercase tracking-widest font-bold text-zinc-400">
-                        May 15, 2026
-                    </span>
-
-                    <span class="px-3 py-1 rounded-full bg-red-100 dark:bg-red-950/50 text-red-500 text-xs font-black uppercase">
-                        Happening Now
-                    </span>
-                </div>
-
-                <h2 class="text-2xl md:text-3xl font-black leading-tight mt-4">
-                    Lewandowski in Active Talks with Al-Hilal
-                </h2>
-
-                <p class="mt-4 text-zinc-600 dark:text-zinc-300 text-base md:text-lg leading-relaxed">
-                    Live reports out of Barcelona indicate club board members
-                    are reviewing a structural €100m+ package submission.
-                </p>
-            </div>
-
-            <!-- CARD 2 -->
-            <div class="news-card bg-white dark:bg-zinc-900 p-8 rounded-3xl border-l-8 border-blue-500 shadow-lg hover:shadow-blue-500/20"
-                 data-category="going-to-happen">
-
-                <div class="flex justify-between items-center">
-                    <span class="text-xs uppercase tracking-widest font-bold text-zinc-400">
-                        May 15, 2026
-                    </span>
-
-                    <span class="px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-950/50 text-blue-500 text-xs font-black uppercase">
-                        Gonna Happen
-                    </span>
-                </div>
-
-                <h2 class="text-2xl md:text-3xl font-black leading-tight mt-4">
-                    Anthony Gordon to Bayern Munich Signed Next Week
-                </h2>
-
-                <p class="mt-4 text-zinc-600 dark:text-zinc-300 text-base md:text-lg leading-relaxed">
-                    The Newcastle winger has finalized personal terms.
-                    Medical documentation checks are booked in Munich.
-                </p>
-            </div>
-
-            <!-- CARD 3 -->
-            <div class="news-card bg-white dark:bg-zinc-900 p-8 rounded-3xl border-l-8 border-zinc-500 shadow-lg hover:shadow-zinc-500/20"
-                 data-category="will-not-happen">
-
-                <div class="flex justify-between items-center">
-                    <span class="text-xs uppercase tracking-widest font-bold text-zinc-400">
-                        May 15, 2026
-                    </span>
-
-                    <span class="px-3 py-1 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-500 text-xs font-black uppercase">
-                        Will Not Happen
-                    </span>
-                </div>
-
-                <h2 class="text-2xl md:text-3xl font-black leading-tight mt-4">
-                    Erling Haaland to Barcelona Link Completely Dead
-                </h2>
-
-                <p class="mt-4 text-zinc-600 dark:text-zinc-300 text-base md:text-lg leading-relaxed">
-                    Financial compliance restrictions confirm Barcelona will
-                    not initiate market contact for the forward.
-                </p>
-            </div>
-        </div>
-    </main>
-
-    <!-- FOOTER WATERMARK -->
-    <div class="fixed bottom-5 right-5 text-zinc-500 dark:text-zinc-600 text-[11px] font-black tracking-[0.3em] uppercase">
-        Legendary Ace
+  </style>
+ </head>
+ <body class="bg-zinc-100 text-zinc-900 dark:bg-[#0a0a0a] dark:text-zinc-100 font-sans transition-all duration-500 min-h-screen overflow-x-hidden">
+  <!-- Background Texture -->
+  <div class="fixed inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(circle,#ffffff_1px,transparent_1px)] bg-[size:22px_22px]">
+  </div>
+  <!-- NAVBAR -->
+  <nav class="sticky top-0 z-50 bg-white/80 dark:bg-black/70 glass border-b border-zinc-200 dark:border-zinc-800 shadow-xl transition-all duration-300">
+   <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+    <div class="text-xl font-black tracking-widest uppercase">
+     <span class="text-red-500">
+      Legendary
+     </span>
+     <span class="dark:text-white">
+      Ace
+     </span>
     </div>
-
-    <!-- JAVASCRIPT -->
-    <script>
-
-        // THEME TOGGLE
+    <div class="flex items-center gap-10 text-sm font-bold tracking-wide">
+     <a class="text-red-500 dark:text-red-400 transition-colors" href="index.html">
+      NEWS
+     </a>
+     <a class="text-zinc-700 dark:text-zinc-300 hover:text-red-500 dark:hover:text-red-400 transition-colors" href="leagues.html">
+      LEAGUES
+     </a>
+     <a class="text-zinc-700 dark:text-zinc-300 hover:text-red-500 dark:hover:text-red-400 transition-colors" href="players.html">
+      PLAYERS
+     </a>
+     <a class="text-zinc-700 dark:text-zinc-300 hover:text-red-500 dark:hover:text-red-400 transition-colors" href="about.html">
+      ABOUT
+     </a>
+    </div>
+    <!-- THEME BUTTON -->
+    <button class="group p-3 rounded-2xl bg-zinc-200 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 hover:scale-105 transition-all duration-300" onclick="toggleTheme()">
+     <!-- SUN -->
+     <svg class="w-5 h-5 text-amber-400 hidden dark:block" fill="none" id="sun-icon" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+      <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" stroke-linecap="round" stroke-linejoin="round">
+      </path>
+     </svg>
+     <!-- MOON -->
+     <svg class="w-5 h-5 text-zinc-700 dark:hidden" fill="none" id="moon-icon" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+      <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" stroke-linecap="round" stroke-linejoin="round">
+      </path>
+     </svg>
+    </button>
+   </div>
+  </nav>
+  <!-- MAIN -->
+  <main class="max-w-5xl mx-auto px-6 py-12">
+   <!-- HERO -->
+   <section class="mb-12">
+    <h1 class="text-5xl md:text-7xl font-black italic leading-none tracking-tight">
+     TRANSFER
+     <span class="bg-gradient-to-r from-red-500 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
+      WATCH
+     </span>
+    </h1>
+    <p class="mt-4 text-zinc-600 dark:text-zinc-400 text-lg max-w-2xl leading-relaxed">
+     The latest transfer movements, elite rumors, completed deals,
+                and football market predictions from across Europe.
+    </p>
+   </section>
+   <!-- COUNTDOWN -->
+   <section class="relative overflow-hidden mb-12 bg-gradient-to-br from-zinc-950 via-zinc-900 to-black p-8 rounded-3xl border border-zinc-800 shadow-2xl">
+    <!-- Glow -->
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_right,#ef4444,transparent_35%)]">
+    </div>
+    <div class="relative flex flex-col md:flex-row justify-between items-center gap-6">
+     <div>
+      <span class="text-xs font-black uppercase tracking-[0.25em] text-red-400">
+       Next Big Match
+      </span>
+      <h2 class="text-3xl md:text-4xl font-black mt-2">
+       Real Madrid vs Barcelona
+      </h2>
+      <p class="mt-2 text-zinc-400">
+       El Clasico returns under the lights.
+      </p>
+     </div>
+     <!-- TIMER -->
+     <div class="flex gap-3 text-center">
+      <div class="bg-zinc-900/80 border border-zinc-700 backdrop-blur-md px-4 py-3 rounded-2xl min-w-[78px] shadow-lg">
+       <div class="text-3xl font-black text-red-400" id="timer-days">
+        00
+       </div>
+       <div class="text-[10px] uppercase tracking-widest text-zinc-500 mt-1">
+        Days
+       </div>
+      </div>
+      <div class="bg-zinc-900/80 border border-zinc-700 backdrop-blur-md px-4 py-3 rounded-2xl min-w-[78px] shadow-lg">
+       <div class="text-3xl font-black" id="timer-hours">
+        00
+       </div>
+       <div class="text-[10px] uppercase tracking-widest text-zinc-500 mt-1">
+        Hrs
+       </div>
+      </div>
+      <div class="bg-zinc-900/80 border border-zinc-700 backdrop-blur-md px-4 py-3 rounded-2xl min-w-[78px] shadow-lg">
+       <div class="text-3xl font-black" id="timer-minutes">
+        00
+       </div>
+       <div class="text-[10px] uppercase tracking-widest text-zinc-500 mt-1">
+        Min
+       </div>
+      </div>
+      <div class="bg-zinc-900/80 border border-zinc-700 backdrop-blur-md px-4 py-3 rounded-2xl min-w-[78px] shadow-lg">
+       <div class="text-3xl font-black text-red-500 animate-pulse" id="timer-seconds">
+        00
+       </div>
+       <div class="text-[10px] uppercase tracking-widest text-zinc-500 mt-1">
+        Sec
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- FILTER BUTTONS -->
+   <div class="flex flex-wrap gap-3 mb-10">
+    <button class="filter-btn active-filter px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300" id="btn-all" onclick="filterNews('all')">
+     All News
+    </button>
+    <button class="filter-btn px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300" id="btn-happening" onclick="filterNews('happening')">
+     What's Happening
+    </button>
+    <button class="filter-btn px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300" id="btn-going-to-happen" onclick="filterNews('going-to-happen')">
+     What's Gonna Happen
+    </button>
+    <button class="filter-btn px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300" id="btn-will-not-happen" onclick="filterNews('will-not-happen')">
+     What Won't Happen
+    </button>
+   </div>
+   <!-- NEWS FEED -->
+   <div class="space-y-7" id="news-feed">
+    <div class="news-card bg-white dark:bg-zinc-800 p-8 rounded-2xl border-l-8 border-red-500 shadow-md tracking-tight" data-category="happening">
+     <div class="flex justify-between items-center">
+      <span class="text-xs font-bold uppercase text-zinc-400">
+       May 15, 2026
+      </span>
+      <span class="px-2.5 py-1 rounded bg-red-100 dark:bg-red-950 text-red-600 dark:text-red-400 text-xs font-bold uppercase">
+       Happening Now
+      </span>
+     </div>
+     <h2 class="text-3xl font-extrabold mt-2 text-zinc-900 dark:text-white">
+      Lewandowski in Active Talks with Al-Hilal
+     </h2>
+     <p class="text-zinc-600 dark:text-zinc-300 mt-3 text-lg leading-relaxed">
+      Live reports out of Barcelona indicate club board members are reviewing a structural &euro;100m+ package submission.
+     </p>
+    </div>
+    <div class="news-card bg-white dark:bg-zinc-800 p-8 rounded-2xl border-l-8 border-blue-500 shadow-md tracking-tight" data-category="going-to-happen">
+     <div class="flex justify-between items-center">
+      <span class="text-xs font-bold uppercase text-zinc-400">
+       May 15, 2026
+      </span>
+      <span class="px-2.5 py-1 rounded bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase">
+       Gonna Happen
+      </span>
+     </div>
+     <h2 class="text-3xl font-extrabold mt-2 text-zinc-900 dark:text-white">
+      Anthony Gordon to Bayern Munich Signed Next Week
+     </h2>
+     <p class="text-zinc-600 dark:text-zinc-300 mt-3 text-lg leading-relaxed">
+      The Newcastle winger has finalized personal terms. Medical documentation checks are booked in Munich.
+     </p>
+    </div>
+    <div class="news-card bg-white dark:bg-zinc-800 p-8 rounded-2xl border-l-8 border-zinc-500 shadow-md tracking-tight" data-category="will-not-happen">
+     <div class="flex justify-between items-center">
+      <span class="text-xs font-bold uppercase text-zinc-400">
+       May 15, 2026
+      </span>
+      <span class="px-2.5 py-1 rounded bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 text-xs font-bold uppercase">
+       Will Not Happen
+      </span>
+     </div>
+     <h2 class="text-3xl font-extrabold mt-2 text-zinc-900 dark:text-white">
+      Erling Haaland to Barcelona Link Completely Dead
+     </h2>
+     <p class="text-zinc-600 dark:text-zinc-300 mt-3 text-lg leading-relaxed">
+      Financial compliance restrictions confirm Barcelona will not initiate any market contact for the forward.
+     </p>
+    </div>
+   </div>
+  </main>
+  <!-- FOOTER WATERMARK -->
+  <div class="fixed bottom-5 right-5 text-zinc-500 dark:text-zinc-600 text-[11px] font-black tracking-[0.3em] uppercase">
+   Legendary Ace
+  </div>
+  <!-- JAVASCRIPT -->
+  <script>
+   // THEME TOGGLE
         function toggleTheme() {
 
             document.documentElement.classList.toggle('dark');
@@ -457,8 +373,6 @@
             'shadow-lg',
             'scale-105'
         );
-
-    </script>
-
-</body>
+  </script>
+ </body>
 </html>

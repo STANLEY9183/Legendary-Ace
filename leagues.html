@@ -4,29 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Legendary Ace | UCL & Leagues</title>
-    <script src="https://tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        zinc: { 750: '#3f3f46' }
-                    }
-                }
-            }
+            theme: { extend: { colors: { zinc: { 750: '#3f3f46' } } } }
         }
     </script>
 </head>
-<!-- Synchronized theme initialization -->
 <body class="dark bg-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 font-sans transition-colors duration-300">
     
-    <!-- Identical Bright Navigation Bar -->
-    <nav class="p-6 bg-white dark:bg-zinc-950 flex justify-between items-center border-b-2 border-red-500 sticky top-0 z-50 shadow-lg transition-colors duration-300">
+    <!-- Top Navigation Bar (Underline borders removed for a cleaner look) -->
+    <nav class="p-6 bg-white dark:bg-zinc-950 flex justify-between items-center border-b border-zinc-200 dark:border-zinc-800 sticky top-0 z-50 shadow-lg transition-colors duration-300">
         <div class="w-10"></div> 
         <div class="flex space-x-12">
             <a href="index.html" class="text-zinc-700 dark:text-zinc-300 hover:text-red-500 dark:hover:text-red-400 font-semibold transition-colors duration-200">NEWS</a>
-            <a href="leagues.html" class="text-red-500 dark:text-red-400 font-black tracking-wide border-b-2 border-red-500 dark:border-red-400 pb-1">LEAGUES</a>
+            <a href="leagues.html" class="text-red-500 dark:text-red-400 font-black tracking-wide pb-1">LEAGUES</a>
             <a href="players.html" class="text-zinc-700 dark:text-zinc-300 hover:text-red-500 dark:hover:text-red-400 font-semibold transition-colors duration-200">PLAYERS</a>
             <a href="about.html" class="text-zinc-700 dark:text-zinc-300 hover:text-red-500 dark:hover:text-red-400 font-semibold transition-colors duration-200">ABOUT</a>
         </div>
@@ -37,12 +30,11 @@
     </nav>
 
     <main class="max-w-4xl mx-auto py-12 px-6">
-        <!-- Main header match -->
         <h1 class="text-5xl font-black mb-10 italic tracking-tight text-zinc-900 dark:text-white">
             THE ROAD TO <span class="bg-gradient-to-r from-red-600 to-orange-500 dark:from-red-500 dark:to-orange-400 bg-clip-text text-transparent">26/27 UCL</span>
         </h1>
 
-        <!-- NEW INTERACTIVE COMPONENT: Live Search / Filter Bar -->
+        <!-- Live Search Bar -->
         <div class="mb-8 max-w-md">
             <input type="text" id="teamSearch" onkeyup="searchTeams()" placeholder="🔍 Quick search teams or leagues..." class="w-full px-5 py-3 rounded-xl bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white border border-zinc-300 dark:border-zinc-700 focus:outline-none focus:border-red-500 transition-colors shadow-sm">
         </div>
@@ -55,77 +47,62 @@
                     <h3 class="text-2xl font-extrabold text-red-500 dark:text-red-400 tracking-tight">UCL Qualified Teams</h3>
                 </div>
                 
-                <!-- Individual stylized target filter nodes -->
-                <ul id="teamsList" class="space-y-4">
-                    <li class="team-item flex items-center justify-between p-3 rounded-xl bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800" data-team="england arsenal manchester city united">
-                        <div class="flex items-center space-x-3">
-                            <span class="text-2xl">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span>
-                            <span class="font-bold text-zinc-800 dark:text-white">Arsenal, Man City, Man Utd</span>
-                        </div>
-                        <span class="px-2.5 py-0.5 text-[11px] font-black uppercase tracking-wider bg-green-100 dark:bg-green-950 text-green-600 dark:text-green-400 rounded-md">Confirmed</span>
-                    </li>
-                    <li class="team-item flex items-center justify-between p-3 rounded-xl bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800" data-team="spain barcelona real madrid atletico">
-                        <div class="flex items-center space-x-3">
-                            <span class="text-2xl">🇪🇸</span>
-                            <span class="font-bold text-zinc-800 dark:text-white">Barcelona, Real Madrid, Atletico</span>
-                        </div>
-                        <span class="px-2.5 py-0.5 text-[11px] font-black uppercase tracking-wider bg-orange-100 dark:bg-amber-950/70 text-amber-600 dark:text-amber-400 rounded-md">In Progress</span>
-                    </li>
-                    <li class="team-item flex items-center justify-between p-3 rounded-xl bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800" data-team="italy inter milan napoli">
-                        <div class="flex items-center space-x-3">
-                            <span class="text-2xl">🇮🇹</span>
-                            <span class="font-bold text-zinc-800 dark:text-white">Inter Milan, Napoli</span>
-                        </div>
-                        <span class="px-2.5 py-0.5 text-[11px] font-black uppercase tracking-wider bg-orange-100 dark:bg-amber-950/70 text-amber-600 dark:text-amber-400 rounded-md">In Progress</span>
-                    </li>
-                    <li class="team-item flex items-center justify-between p-3 rounded-xl bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800" data-team="germany bayern munich dortmund leipzig">
-                        <div class="flex items-center space-x-3">
-                            <span class="text-2xl">🇩🇪</span>
-                            <span class="font-bold text-zinc-800 dark:text-white">Bayern, Dortmund, RB Leipzig</span>
-                        </div>
-                        <span class="px-2.5 py-0.5 text-[11px] font-black uppercase tracking-wider bg-orange-100 dark:bg-amber-950/70 text-amber-600 dark:text-amber-400 rounded-md">In Progress</span>
-                    </li>
+                <!-- ID LINKED TO PYTHON AUTOMATION CORE FOR SAFE UPDATES -->
+                <ul id="leagues-feed" class="space-y-4">
+                    <!-- Python will populate and clear rows inside here dynamically -->
                 </ul>
             </div>
 
-            <!-- Right Panel: Domestic Race Breakdown & Predictor -->
+            <!-- Right Panel: Fixed Domestic Forecast Matrix Data -->
             <div class="bg-white dark:bg-zinc-800 p-8 rounded-3xl border border-zinc-200 dark:border-zinc-700 shadow-md transition-all duration-300 flex flex-col justify-between">
                 <div>
                     <div class="flex items-center space-x-3 mb-6">
                         <div class="w-2.5 h-6 bg-blue-500 rounded-full"></div>
-                        <h3 class="text-2xl font-extrabold text-blue-500 dark:text-blue-400 tracking-tight">Domestic Winners</h3>
+                        <h3 class="text-2xl font-extrabold text-blue-500 dark:text-blue-400 tracking-tight">Domestic Forecasts</h3>
                     </div>
                     
-                    <!-- Formatted Content Blocks -->
                     <div class="space-y-6">
+                        <!-- What's Happening -->
                         <div class="border-b border-zinc-100 dark:border-zinc-700 pb-4">
                             <div class="flex items-center justify-between">
-                                <span class="font-black text-lg tracking-wide text-zinc-900 dark:text-white">🇪🇸 LA LIGA</span>
-                                <span class="text-xs font-bold text-red-500 bg-red-50 dark:bg-red-950/50 px-2 py-0.5 rounded">Title Decided</span>
+                                <span class="font-black text-sm tracking-widest text-red-500 uppercase">What's Happening</span>
+                                <span class="text-xs font-bold text-red-500 bg-red-50 dark:bg-red-950/50 px-2 py-0.5 rounded">La Liga</span>
                             </div>
                             <p class="text-zinc-600 dark:text-zinc-300 mt-2 text-base leading-relaxed">
-                                <strong class="text-zinc-900 dark:text-white">Barcelona</strong> clinches the championship crown outright following an intense El Clásico victory over Real Madrid.
+                                <strong class="text-zinc-900 dark:text-white">Barcelona</strong> secures the trophy completely following their definitive standard win over Real Madrid.
                             </p>
                         </div>
 
-                        <div>
+                        <!-- What's Gonna Happen -->
+                        <div class="border-b border-zinc-100 dark:border-zinc-700 pb-4">
                             <div class="flex items-center justify-between">
-                                <span class="font-black text-lg tracking-wide text-zinc-900 dark:text-white">🏴󠁧󠁢󠁥󠁮󠁧󠁿 PREMIER LEAGUE</span>
-                                <span class="text-xs font-bold text-blue-500 bg-blue-50 dark:bg-blue-950/50 px-2 py-0.5 rounded animate-pulse">2 Games Left</span>
+                                <span class="font-black text-sm tracking-widest text-blue-500 uppercase">What's Gonna Happen</span>
+                                <span class="text-xs font-bold text-blue-500 bg-blue-50 dark:bg-blue-950/50 px-2 py-0.5 rounded animate-pulse">EPL Race</span>
                             </div>
                             <p class="text-zinc-600 dark:text-zinc-300 mt-2 text-base leading-relaxed">
-                                <strong class="text-zinc-900 dark:text-white">Arsenal</strong> leads Manchester City by just 2 points. The title race is coming down directly to the wire!
+                                <strong class="text-zinc-900 dark:text-white">Arsenal</strong> leads Manchester City by 2 points with 2 matches remaining. The crown goes down to the wire next week.
+                            </p>
+                        </div>
+
+                        <!-- What Will Not Happen -->
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <span class="font-black text-sm tracking-widest text-zinc-400 uppercase">What Won't Happen</span>
+                                <span class="text-xs font-bold text-zinc-500 bg-zinc-100 dark:bg-zinc-900 px-2 py-0.5 rounded">Serie A</span>
+                            </div>
+                            <p class="text-zinc-600 dark:text-zinc-300 mt-2 text-base leading-relaxed">
+                                <strong class="text-zinc-900 dark:text-white">Juventus</strong> is mathematically out of the title loop. They will not catch Inter Milan or Napoli this season.
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <!-- NEW INTERACTIVE COMPONENT: Fan Predictor Widget -->
+                <!-- Fan Predictor Voting Module -->
                 <div class="mt-8 pt-6 border-t border-zinc-200 dark:border-zinc-700 text-center">
                     <span class="text-xs font-black tracking-widest text-zinc-400 dark:text-zinc-500 uppercase">Who wins the PL? Voter Poll</span>
                     <div class="flex gap-3 mt-3">
-                        <button onclick="castVote('arsenal')" class="flex-1 py-2 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 font-bold hover:border-red-500 hover:text-red-500 transition-all text-sm">Arsenal</button>
-                        <button onclick="castVote('city')" class="flex-1 py-2 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 font-bold hover:border-blue-400 hover:text-blue-400 transition-all text-sm">Man City</button>
+                        <button onclick="castVote()" class="flex-1 py-2 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 font-bold hover:border-red-500 hover:text-red-500 transition-all text-sm">Arsenal</button>
+                        <button onclick="castVote()" class="flex-1 py-2 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 font-bold hover:border-blue-400 hover:text-blue-400 transition-all text-sm">Man City</button>
                     </div>
                     <div id="vote-receipt" class="hidden text-xs text-green-500 font-bold mt-3">✓ Prediction counted! Live distribution updated.</div>
                 </div>
@@ -133,42 +110,16 @@
         </div>
     </main>
 
-    <!-- Static Footer Element Alignment -->
     <div class="fixed bottom-4 right-4 text-zinc-400 dark:text-zinc-500 text-[10px] font-mono tracking-widest uppercase">legendary ace</div>
 
-    <!-- Interactivity Application Layer Scripts -->
     <script>
-        // 1. Theme Engine Implementation
-        function toggleTheme() {
-            const body = document.body;
-            if (body.classList.contains('dark')) {
-                body.classList.remove('dark');
-            } else {
-                body.classList.add('dark');
-            }
-        }
-
-        // 2. Real-Time UI Client-Side Text Engine Search Filter
-        // Dynamically parses data-team strings to show/hide relevant records instantly
+        function toggleTheme() { document.body.classList.toggle('dark'); }
+        function castVote() { document.getElementById('vote-receipt').classList.remove('hidden'); }
         function searchTeams() {
             const query = document.getElementById('teamSearch').value.toLowerCase();
-            const items = document.querySelectorAll('.team-item');
-            
-            items.forEach(item => {
-                const searchScope = item.getAttribute('data-team').toLowerCase();
-                if (searchScope.includes(query)) {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = 'none';
-                }
+            document.querySelectorAll('.team-item').forEach(item => {
+                item.style.display = item.getAttribute('data-team').toLowerCase().includes(query) ? 'flex' : 'none';
             });
-        }
-
-        // 3. Simple Predictor Data Submission Simulator
-        function castVote(team) {
-            const receipt = document.getElementById('vote-receipt');
-            receipt.classList.remove('hidden');
-            setTimeout(() => receipt.classList.add('hidden'), 4000);
         }
     </script>
 </body>

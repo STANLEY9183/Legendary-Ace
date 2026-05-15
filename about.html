@@ -1,16 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legendary Ace | About Us</title>
+    <script src="https://tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: { 750: '#3f3f46' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<!-- Synchronized theme initialization -->
+<body class="dark bg-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 font-sans transition-colors duration-300">
+    
+    <!-- Identical Bright Navigation Bar -->
+    <nav class="p-6 bg-white dark:bg-zinc-950 flex justify-between items-center border-b-2 border-red-500 sticky top-0 z-50 shadow-lg transition-colors duration-300">
+        <div class="w-10"></div> 
+        <div class="flex space-x-12">
+            <a href="index.html" class="text-zinc-700 dark:text-zinc-300 hover:text-red-500 dark:hover:text-red-400 font-semibold transition-colors duration-200">NEWS</a>
+            <a href="leagues.html" class="text-zinc-700 dark:text-zinc-300 hover:text-red-500 dark:hover:text-red-400 font-semibold transition-colors duration-200">LEAGUES</a>
+            <a href="players.html" class="text-zinc-700 dark:text-zinc-300 hover:text-red-500 dark:hover:text-red-400 font-semibold transition-colors duration-200">PLAYERS</a>
+            <a href="about.html" class="text-red-500 dark:text-red-400 font-black tracking-wide border-b-2 border-red-500 dark:border-red-400 pb-1">ABOUT</a>
+        </div>
+        <button onclick="toggleTheme()" class="p-2.5 rounded-xl bg-zinc-200 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-all active:scale-95" aria-label="Toggle Theme">
+            <svg id="sun-icon" class="w-5 h-5 text-amber-400 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
+            <svg id="moon-icon" class="w-5 h-5 text-zinc-700 dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+        </button>
+    </nav>
 
-<!-- Use the same Nav as index.html -->
     <main class="max-w-4xl mx-auto py-12 px-6 text-center">
-        <h1 class="text-6xl font-black mb-8 italic">LEGENDARY <span class="text-red-600">ACE</span></h1>
-        <p class="text-zinc-400 text-xl max-w-2xl mx-auto mb-16">
+        <!-- Main Brand Title -->
+        <h1 class="text-6xl font-black mb-6 italic tracking-tight text-zinc-900 dark:text-white">
+            LEGENDARY <span class="bg-gradient-to-r from-red-600 to-orange-500 dark:from-red-500 dark:to-orange-400 bg-clip-text text-transparent">ACE</span>
+        </h1>
+        <p class="text-zinc-600 dark:text-zinc-300 text-xl max-w-2xl mx-auto mb-12 leading-relaxed font-medium">
             We provide AI-powered, original football journalism. Our content is generated through advanced analytics to ensure a 100% piracy-free experience.
         </p>
+
+        <!-- NEW COMPONENT: Interactive Live Platform Performance Counter Metrics -->
+        <section class="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-16 border-y border-zinc-200 dark:border-zinc-800 py-8">
+            <div>
+                <div class="text-3xl sm:text-4xl font-black text-red-500 dark:text-red-400">100%</div>
+                <div class="text-[10px] sm:text-xs uppercase tracking-widest text-zinc-400 mt-1 font-bold">Original Data</div>
+            </div>
+            <div class="border-x border-zinc-200 dark:border-zinc-800">
+                <div class="text-3xl sm:text-4xl font-black text-zinc-900 dark:text-white">24/7</div>
+                <div class="text-[10px] sm:text-xs uppercase tracking-widest text-zinc-400 mt-1 font-bold">AI Analytics</div>
+            </div>
+            <div>
+                <div class="text-3xl sm:text-4xl font-black text-blue-500 dark:text-blue-400">0%</div>
+                <div class="text-[10px] sm:text-xs uppercase tracking-widest text-zinc-400 mt-1 font-bold">Piracy Risk</div>
+            </div>
+        </section>
         
-        <h2 class="text-2xl font-bold mb-6">Connect With Us</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <a href="https://facebook.com" class="p-6 bg-zinc-900 rounded-3xl hover:bg-blue-600 transition font-bold">Facebook</a>
-            <a href="https://wa.me/260976358398" class="p-6 bg-zinc-900 rounded-3xl hover:bg-green-600 transition font-bold">WhatsApp</a>
-            <a href="https://instagram.com" class="p-6 bg-zinc-900 rounded-3xl hover:bg-pink-600 transition font-bold">Instagram</a>
+        <!-- Social Connection Network Grid -->
+        <h2 class="text-2xl font-black mb-6 tracking-tight text-zinc-900 dark:text-white uppercase">Connect With Us</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            <!-- Facebook Card Link -->
+            <a href="https://facebook.com" target="_blank" class="p-6 bg-white dark:bg-zinc-800 rounded-3xl border border-zinc-200 dark:border-zinc-750 text-zinc-800 dark:text-white hover:bg-blue-600 dark:hover:bg-blue-600 hover:text-white dark:hover:text-white hover:border-transparent dark:hover:border-transparent font-extrabold text-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center space-x-2" id="soc-fb">
+                <span>📘 Facebook</span>
+            </a>
+            <!-- WhatsApp Card Link -->
+            <a href="https://wa.me/260976358398" target="_blank" class="p-6 bg-white dark:bg-zinc-800 rounded-3xl border border-zinc-200 dark:border-zinc-750 text-zinc-800 dark:text-white hover:bg-green-600 dark:hover:bg-green-600 hover:text-white dark:hover:text-white hover:border-transparent dark:hover:border-transparent font-extrabold text-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center space-x-2" id="soc-wa">
+                <span>💬 WhatsApp</span>
+            </a>
+            <!-- Instagram Card Link -->
+            <a href="https://instagram.com" target="_blank" class="p-6 bg-white dark:bg-zinc-800 rounded-3xl border border-zinc-200 dark:border-zinc-750 text-zinc-800 dark:text-white hover:bg-pink-600 dark:hover:bg-pink-600 hover:text-white dark:hover:text-white hover:border-transparent dark:hover:border-transparent font-extrabold text-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center space-x-2" id="soc-ig">
+                <span>📸 Instagram</span>
+            </a>
         </div>
+
+        <!-- NEW COMPONENT: Interactive Accordion Frequently Asked Questions (FAQ) Section -->
+        <section class="max-w-2xl mx-auto text-left">
+            <h2 class="text-2xl font-black mb-6 tracking-tight text-center text-zinc-900 dark:text-white uppercase">Frequently Asked Questions</h2>
+            <div class="space-y-3">
+                <!-- Accordion Slot 1 -->
+                <div class="border border-zinc-200 dark:border-zinc-800 rounded-2xl bg-white dark:bg-zinc-950 overflow-hidden transition-colors duration-300">
+                    <button onclick="toggleAccordion('faq1')" class="w-full p-5 font-bold flex justify-between items-center text-zinc-900 dark:text-white bg-zinc-50 dark:bg-zinc-950 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">
+                        <span>How are your transfer rumors generated?</span>
+                        <span id="faq1-icon" class="text-xl transition-transform duration-300">+</span>
+                    </button>
+                    <div id="faq1-content" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-white dark:bg-zinc-950">
+                        <p class="p-5 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 border-t border-zinc-100 dark:border-zinc-900">
+                            Our platform analyzes thousands of official sporting media outlets, press conferences, and agent data streams in real-time. The information is cross-referenced using machine algorithms to assign likelihood percentages to active football player movements.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Accordion Slot 2 -->
+                <div class="border border-zinc-200 dark:border-zinc-800 rounded-2xl bg-white dark:bg-zinc-950 overflow-hidden transition-colors duration-300">
+                    <button onclick="toggleAccordion('faq2')" class="w-full p-5 font-bold flex justify-between items-center text-zinc-900 dark:text-white bg-zinc-50 dark:bg-zinc-950 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">
+                        <span>What makes your content 100% piracy-free?</span>
+                        <span id="faq2-icon" class="text-xl transition-transform duration-300">+</span>
+                    </button>
+                    <div id="faq2-content" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-white dark:bg-zinc-950">
+                        <p class="p-5 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 border-t border-zinc-100 dark:border-zinc-900">
+                            We write and compile all match predictions, player statistics, and performance digests natively. We do not extract copyright-protected articles, illegal streams, or paywalled media chunks from outer sources.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-    <div class="fixed bottom-4 right-4 text-zinc-700 text-[10px] font-mono uppercase">legendary ace</div>
+
+    <!-- Anchored Footnote -->
+    <div class="fixed bottom-4 right-4 text-zinc-400 dark:text-zinc-500 text-[10px] font-mono tracking-widest uppercase">legendary ace</div>
+
+    <!-- Scripting Engine Logic Layer -->
+    <script>
+        // 1. Core Synchronized UI Theme Engine
+        function toggleTheme() {
+            const body = document.body;
+            body.classList.toggle('dark');
+        }
+
+        // 2. Interactive FAQ Accordion Slide and Rotation Matrix Toggle
+        function toggleAccordion(id) {
+            const content = document.getElementById(`${id}-content`);
+            const icon = document.getElementById(`${id}-icon`);
+            
+            if (content.style.maxHeight && content.style.maxHeight !== "0px") {
+                content.style.maxHeight = "0px";
+                icon.style.transform = "rotate(0deg)";
+                icon.innerText = "+";
+            } else {
+                // Set explicitly computed scroll height parameter values
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = "rotate(45deg)";
+                icon.innerText = "×";
+            }
+        }
+    </script>
+</body>
+</html>

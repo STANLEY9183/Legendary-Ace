@@ -1,20 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legendary Ace | Elite Performers</title>
+    <script src="https://tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: { 750: '#3f3f46' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="dark bg-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 font-sans transition-colors duration-300">
+    
+    <!-- Navigation Bar -->
+    <nav class="p-6 bg-white dark:bg-zinc-950 flex justify-between items-center border-b-2 border-red-500 sticky top-0 z-50 shadow-lg transition-colors duration-300">
+        <div class="w-10"></div> 
+        <div class="flex space-x-12">
+            <a href="index.html" class="text-zinc-700 dark:text-zinc-300 hover:text-red-500 dark:hover:text-red-400 font-semibold transition-colors duration-200">NEWS</a>
+            <a href="leagues.html" class="text-zinc-700 dark:text-zinc-300 hover:text-red-500 dark:hover:text-red-400 font-semibold transition-colors duration-200">LEAGUES</a>
+            <a href="players.html" class="text-red-500 dark:text-red-400 font-black tracking-wide border-b-2 border-red-500 dark:border-red-400 pb-1">PLAYERS</a>
+            <a href="about.html" class="text-zinc-700 dark:text-zinc-300 hover:text-red-500 dark:hover:text-red-400 font-semibold transition-colors duration-200">ABOUT</a>
+        </div>
+        <button onclick="toggleTheme()" class="p-2.5 rounded-xl bg-zinc-200 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-all active:scale-95" aria-label="Toggle Theme">
+            <svg id="sun-icon" class="w-5 h-5 text-amber-400 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
+            <svg id="moon-icon" class="w-5 h-5 text-zinc-700 dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+        </button>
+    </nav>
 
-<!-- Use the same Nav as index.html -->
     <main class="max-w-4xl mx-auto py-12 px-6">
-        <h1 class="text-5xl font-black mb-12 text-center">ELITE <span class="text-red-600">PERFORMERS</span></h1>
-        <div class="space-y-4">
-            <div class="flex justify-between items-center bg-zinc-900 p-6 rounded-2xl border border-zinc-800">
-                <div><span class="font-black text-red-500 mr-4 text-2xl">01</span> <span class="text-xl font-bold">Erling Haaland</span></div>
-                <div class="text-right"><div class="text-sm text-zinc-500">26 Goals (Golden Boot Leader)</div></div>
+        <!-- Title Header -->
+        <h1 class="text-5xl font-black mb-8 italic tracking-tight text-center text-zinc-900 dark:text-white">
+            ELITE <span class="bg-gradient-to-r from-red-600 to-orange-500 dark:from-red-500 dark:to-orange-400 bg-clip-text text-transparent">PERFORMERS</span>
+        </h1>
+
+        <!-- NEW COMPONENT: Interactive Player of the Month Polling Widget -->
+        <section class="mb-10 bg-white dark:bg-zinc-950 p-6 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-md transition-colors duration-300">
+            <div class="text-center mb-6">
+                <span class="px-3 py-1 text-[10px] font-black tracking-widest text-red-500 bg-red-50 dark:bg-red-950/50 rounded-full uppercase">Live Fan Voice</span>
+                <h3 class="text-2xl font-black mt-2 text-zinc-900 dark:text-white tracking-tight">PLAYER OF THE MONTH</h3>
+                <p class="text-zinc-500 dark:text-zinc-400 text-sm mt-1">Cast your vote for the standout performer this matchday cycle.</p>
             </div>
-            <div class="flex justify-between items-center bg-zinc-900 p-6 rounded-2xl border border-zinc-800">
-                <div><span class="font-black text-red-500 mr-4 text-2xl">02</span> <span class="text-xl font-bold">Bruno Fernandes</span></div>
-                <div class="text-right"><div class="text-sm text-zinc-500">19 Assists (Playmaker Leader)</div></div>
+
+            <!-- Interactive Polling Options Container -->
+            <div id="poll-container" class="space-y-3 max-w-xl mx-auto">
+                <!-- Option 1: Haaland -->
+                <button onclick="submitPlayerVote('haaland')" class="poll-option w-full p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 font-bold hover:border-red-500 text-left transition-all flex justify-between items-center group active:scale-[0.99]">
+                    <span class="text-zinc-800 dark:text-white group-hover:text-red-500 transition-colors">Erling Haaland</span>
+                    <span class="text-xs font-mono text-zinc-400">Vote ⚡</span>
+                </button>
+                <!-- Option 2: Bruno -->
+                <button onclick="submitPlayerVote('bruno')" class="poll-option w-full p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 font-bold hover:border-red-500 text-left transition-all flex justify-between items-center group active:scale-[0.99]">
+                    <span class="text-zinc-800 dark:text-white group-hover:text-red-500 transition-colors">Bruno Fernandes</span>
+                    <span class="text-xs font-mono text-zinc-400">Vote ⚡</span>
+                </button>
+                <!-- Option 3: Mbappe -->
+                <button onclick="submitPlayerVote('mbappe')" class="poll-option w-full p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 font-bold hover:border-red-500 text-left transition-all flex justify-between items-center group active:scale-[0.99]">
+                    <span class="text-zinc-800 dark:text-white group-hover:text-red-500 transition-colors">Kylian Mbappé</span>
+                    <span class="text-xs font-mono text-zinc-400">Vote ⚡</span>
+                </button>
             </div>
-            <div class="flex justify-between items-center bg-zinc-900 p-6 rounded-2xl border border-zinc-800">
-                <div><span class="font-black text-red-500 mr-4 text-2xl">03</span> <span class="text-xl font-bold">Kylian Mbappé</span></div>
-                <div class="text-right"><div class="text-sm text-zinc-500">24 Goals (Real Madrid)</div></div>
+
+            <!-- Interactive Results Output Layout (Hidden by Default) -->
+            <div id="poll-results" class="hidden space-y-4 max-w-xl mx-auto">
+                <!-- Results Node 1 -->
+                <div>
+                    <div class="flex justify-between text-sm font-bold mb-1">
+                        <span>Erling Haaland</span>
+                        <span id="res-val-haaland">0%</span>
+                    </div>
+                    <div class="w-full h-3 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden">
+                        <div id="res-bar-haaland" class="h-full bg-red-500 transition-all duration-1000 ease-out" style="width: 0%"></div>
+                    </div>
+                </div>
+                <!-- Results Node 2 -->
+                <div>
+                    <div class="flex justify-between text-sm font-bold mb-1">
+                        <span>Bruno Fernandes</span>
+                        <span id="res-val-bruno">0%</span>
+                    </div>
+                    <div class="w-full h-3 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden">
+                        <div id="res-bar-bruno" class="h-full bg-blue-500 transition-all duration-1000 ease-out" style="width: 0%"></div>
+                    </div>
+                </div>
+                <!-- Results Node 3 -->
+                <div>
+                    <div class="flex justify-between text-sm font-bold mb-1">
+                        <span>Kylian Mbappé</span>
+                        <span id="res-val-mbappe">0%</span>
+                    </div>
+                    <div class="w-full h-3 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden">
+                        <div id="res-bar-mbappe" class="h-full bg-orange-500 transition-all duration-1000 ease-out" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="text-center text-xs text-green-500 font-bold pt-2">✓ Thank you! Your real-time response has been recorded.</div>
+            </div>
+        </section>
+
+        <!-- Live Search Controls -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-between items-center mb-8">
+            <input type="text" id="playerSearch" onkeyup="searchPlayers()" placeholder="🔍 Search players, teams, or stats..." class="w-full sm:max-w-xs px-5 py-2.5 rounded-xl bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white border border-zinc-300 dark:border-zinc-700 focus:outline-none focus:border-red-500 transition-colors shadow-sm text-sm">
+            
+            <div class="flex space-x-2 w-full sm:w-auto">
+                <button onclick="filterStat('all')" id="btn-all" class="flex-1 sm:flex-none px-4 py-2 rounded-full text-xs font-bold bg-red-500 text-white shadow-md transition-all scale-105">All Stats</button>
+                <button onclick="filterStat('goals')" id="btn-goals" class="flex-1 sm:flex-none px-4 py-2 rounded-full text-xs font-bold bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-300 border border-zinc-300 dark:border-transparent hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all">Goals</button>
+                <button onclick="filterStat('assists')" id="btn-assists" class="flex-1 sm:flex-none px-4 py-2 rounded-full text-xs font-bold bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-300 border border-zinc-300 dark:border-transparent hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-all">Assists</button>
+            </div>
+        </div>
+
+        <!-- Performance List -->
+        <div id="player-list" class="space-y-4">
+            <!-- Player Card 1 -->
+            <div class="player-card flex flex-col sm:flex-row sm:items-center justify-between bg-white dark:bg-zinc-800 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-750 shadow-md hover:shadow-xl hover:bg-zinc-50 dark:hover:bg-zinc-750 transition-all duration-300 transform hover:-translate-y-1 gap-4" data-stat-type="goals" data-search-pool="erling haaland manchester city golden boot league goals">
+                <div class="flex items-center space-x-4">
+                    <span class="font-black text-red-500 dark:text-red-400 text-3xl tracking-tighter w-8">01</span>
+                    <div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xl font-extrabold text-zinc-900 dark:text-white tracking-tight">Erling Haaland</span>
+                            <span class="text-sm">🇳🇴</span>
+                        </div>
+                        <span class="text-xs font-semibold tracking-wider text-zinc-400 uppercase">Manchester City</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between sm:justify-end gap-6 border-t sm:border-t-0 border-zinc-100 dark:border-zinc-700 pt-3 sm:pt-0">
+                    <div class="text-left sm:text-right">
+                        <div class="text-2xl font-black text-zinc-900 dark:text-white">26 <span class="text-sm font-bold text-red-500">Goals</span></div>
+                        <div class="text-[11px] font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">Golden Boot Leader</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Player Card 2 -->
+            <div class="player-card flex flex-col sm:flex-row sm:items-center justify-between bg-white dark:bg-zinc-800 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-750 shadow-md hover:shadow-xl hover:bg-zinc-50 dark:hover:bg-zinc-750 transition-all duration-300 transform hover:-translate-y-1 gap-4" data-stat-type="assists" data-search-pool="bruno fernandes manchester united playmaker assist leader">
+                <div class="flex items-center space-x-4">
+                    <span class="font-black text-red-500 dark:text-red-400 text-3xl tracking-tighter w-8">02</span>
+                    <div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xl font-extrabold text-zinc-900 dark:text-white tracking-tight">Bruno Fernandes</span>
+                            <span class="text-sm">🇵🇹</span>
+                        </div>
+                        <span class="text-xs font-semibold tracking-wider text-zinc-400 uppercase">Manchester United</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between sm:justify-end gap-6 border-t sm:border-t-0 border-zinc-100 dark:border-zinc-700 pt-3 sm:pt-0">
+                    <div class="text-left sm:text-right">
+                        <div class="text-2xl font-black text-zinc-900 dark:text-white">19 <span class="text-sm font-bold text-blue-500">Assists</span></div>
+                        <div class="text-[11px] font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">Playmaker Leader</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Player Card 3 -->
+            <div class="player-card flex flex-col sm:flex-row sm:items-center justify-between bg-white dark:bg-zinc-800 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-750 shadow-md hover:shadow-xl hover:bg-zinc-50 dark:hover:bg-zinc-750 transition-all duration-300 transform hover:-translate-y-1 gap-4" data-stat-type="goals" data-search-pool="kylian mbappe real madrid spain goals striker la liga">
+                <div class="flex items-center space-x-4">
+                    <span class="font-black text-red-500 dark:text-red-400 text-3xl tracking-tighter w-8">03</span>
+                    <div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xl font-extrabold text-zinc-900 dark:text-white tracking-tight">Kylian Mbappé</span>
+                            <span class="text-sm">🇫🇷</span>
+                        </div>
+                        <span class="text-xs font-semibold tracking-wider text-zinc-400 uppercase">Real Madrid</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between sm:justify-end gap-6 border-t sm:border-t-0 border-zinc-100 dark:border-zinc-700 pt-3 sm:pt-0">
+                    <div class="text-left sm:text-right">
+                        <div class="text-2xl font-black text-zinc-900 dark:text-white">24 <span class="text-sm font-bold text-red-500">Goals</span></div>
+                        <div class="text-[11px] font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">La Liga Runner Up</div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
-    <div class="fixed bottom-4 right-4 text-zinc-700 text-[10px] font-mono uppercase">legendary ace</div>
+
+    <div class="fixed bottom-4 right-4 text-zinc-400 dark:text-zinc-500 text-[10px] font-mono tracking-widest uppercase">legendary ace</div>
+
+    <!-- Scripting Engine Logic -->
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            body.classList.toggle('dark');
+        }
+
+        // NEW LOGIC: Dynamic Fan Voting Engine Calculations
+        function submitPlayerVote(votedPlayer) {
+            // Hardcoded initial distribution simulator database balances
+            let baselineVotes = { haaland: 520, bruno: 310, mbappe: 440 };
+            
+            // Increment selection balance weight node 
+            baselineVotes[votedPlayer] += 1;
+            
+            const grandTotal = baselineVotes.haaland + baselineVotes.bruno + baselineVotes.mbappe;
+            
+            // Mathematical transformation metrics conversion mapping
+            const pctHaaland = Math.round((baselineVotes.haaland / grandTotal) * 100);
+            const pctBruno = Math.round((baselineVotes.bruno / grandTotal) * 100);
+            const pctMbappe = Math.round((baselineVotes.mbappe / grandTotal) * 100);
+
+            // Swap standard interactive view containers
+            document.getElementById('poll-container').classList.add('hidden');
+            document.getElementById('poll-results').classList.remove('hidden');
+
+            // Render numeric data to labels
+            document.getElementById('res-val-haaland').innerText = pctHaaland + '%';
+            document.getElementById('res-val-bruno').innerText = pctBruno + '%';
+            document.getElementById('res-val-mbappe').innerText = pctMbappe + '%';
+
+            // Transition HTML graphic indicator node lines
+            setTimeout(() => {
+                document.getElementById('res-bar-haaland').style.width = pctHaaland + '%';
+                document.getElementById('res-bar-bruno').style.width = pctBruno + '%';
+                document.getElementById('res-bar-mbappe').style.width = pctMbappe + '%';
+            }, 50);
+        }
+
+        function filterStat(statType) {
+            const cards = document.querySelectorAll('.player-card');
+            const buttons = document.querySelectorAll('[id^="btn-"]');
+            
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-red-500', 'text-white', 'scale-105', 'shadow-md');
+                btn.classList.add('bg-white', 'dark:bg-zinc-800', 'text-zinc-800', 'dark:text-zinc-300');
+            });
+            
+            const activeBtn = document.getElementById(`btn-${statType}`);
+            activeBtn.classList.add('bg-red-500', 'text-white', 'scale-105', 'shadow-md');
+            activeBtn.classList.remove('bg-white', 'dark:bg-zinc-800', 'text-zinc-800', 'dark:text-zinc-300');
+
+            cards.forEach(card => {
+                if (statType === 'all' || card.getAttribute('data-stat-type') === statType) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function searchPlayers() {
+            const query = document.getElementById('playerSearch').value.toLowerCase();
+            const cards = document.querySelectorAll('.player-card');
+            
+            cards.forEach(card => {
+                const textPool = card.getAttribute('data-search-pool').toLowerCase();
+                if (textPool.includes(query)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

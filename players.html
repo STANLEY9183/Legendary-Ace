@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Legendary Ace | Elite Performers</title>
+    <title>Elite Performers</title>
 
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -32,8 +32,8 @@
 
         body {
             background-image:
-                radial-gradient(circle at top right, rgba(239,68,68,0.08), transparent 25%),
-                radial-gradient(circle at bottom left, rgba(59,130,246,0.05), transparent 25%);
+                radial-gradient(circle at top right, rgba(239, 68, 68, 0.08), transparent 25%),
+                radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.05), transparent 25%);
         }
 
         .glass {
@@ -74,11 +74,8 @@
 
         <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
 
-            <!-- LOGO -->
-            <div class="text-xl font-black tracking-widest uppercase">
-                <span class="text-red-500">Legendary</span>
-                <span class="dark:text-white">Ace</span>
-            </div>
+            <!-- EMPTY SPACE -->
+            <div class="w-24"></div>
 
             <!-- NAV LINKS -->
             <div class="flex items-center gap-10 text-sm font-bold tracking-wide">
@@ -158,12 +155,46 @@
                 Follow football's top statistical leaders, fan-voted stars,
                 and elite performers across Europe's biggest leagues.
             </p>
+
+            <!-- HERO STATS -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
+
+                <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-6 shadow-lg">
+                    <div class="text-4xl font-black text-red-500">
+                        120+
+                    </div>
+
+                    <div class="mt-2 uppercase tracking-[0.2em] text-xs text-zinc-500 font-bold">
+                        Goals Tracked
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-6 shadow-lg">
+                    <div class="text-4xl font-black text-blue-500">
+                        58
+                    </div>
+
+                    <div class="mt-2 uppercase tracking-[0.2em] text-xs text-zinc-500 font-bold">
+                        Assists Recorded
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-6 shadow-lg">
+                    <div class="text-4xl font-black text-orange-500">
+                        24/7
+                    </div>
+
+                    <div class="mt-2 uppercase tracking-[0.2em] text-xs text-zinc-500 font-bold">
+                        Live Analytics
+                    </div>
+                </div>
+
+            </div>
         </section>
 
         <!-- PLAYER OF THE MONTH -->
         <section class="relative overflow-hidden mb-12 bg-gradient-to-br from-zinc-950 via-zinc-900 to-black p-8 rounded-3xl border border-zinc-800 shadow-2xl">
 
-            <!-- Glow -->
             <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_right,#ef4444,transparent_35%)]"></div>
 
             <div class="relative">
@@ -183,12 +214,11 @@
                     </p>
                 </div>
 
-                <!-- POLL OPTIONS -->
+                <!-- POLL -->
                 <div id="poll-container" class="space-y-4 max-w-2xl mx-auto">
 
-                    <!-- OPTION -->
                     <button onclick="submitPlayerVote('haaland')"
-                        class="poll-option w-full p-5 rounded-2xl border border-zinc-800 bg-zinc-900/70 hover:border-red-500 hover:shadow-lg hover:shadow-red-500/10 text-left flex justify-between items-center group">
+                        class="poll-option w-full p-5 rounded-2xl border border-zinc-800 bg-zinc-900/70 hover:border-red-500 text-left flex justify-between items-center group">
 
                         <div>
                             <div class="text-lg font-black text-white group-hover:text-red-400 transition-colors">
@@ -205,9 +235,8 @@
                         </span>
                     </button>
 
-                    <!-- OPTION -->
                     <button onclick="submitPlayerVote('bruno')"
-                        class="poll-option w-full p-5 rounded-2xl border border-zinc-800 bg-zinc-900/70 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/10 text-left flex justify-between items-center group">
+                        class="poll-option w-full p-5 rounded-2xl border border-zinc-800 bg-zinc-900/70 hover:border-blue-500 text-left flex justify-between items-center group">
 
                         <div>
                             <div class="text-lg font-black text-white group-hover:text-blue-400 transition-colors">
@@ -224,9 +253,8 @@
                         </span>
                     </button>
 
-                    <!-- OPTION -->
                     <button onclick="submitPlayerVote('mbappe')"
-                        class="poll-option w-full p-5 rounded-2xl border border-zinc-800 bg-zinc-900/70 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/10 text-left flex justify-between items-center group">
+                        class="poll-option w-full p-5 rounded-2xl border border-zinc-800 bg-zinc-900/70 hover:border-orange-500 text-left flex justify-between items-center group">
 
                         <div>
                             <div class="text-lg font-black text-white group-hover:text-orange-400 transition-colors">
@@ -247,7 +275,6 @@
                 <!-- RESULTS -->
                 <div id="poll-results" class="hidden max-w-2xl mx-auto space-y-5">
 
-                    <!-- RESULT -->
                     <div>
                         <div class="flex justify-between text-sm font-bold mb-2">
                             <span>Erling Haaland</span>
@@ -262,7 +289,6 @@
                         </div>
                     </div>
 
-                    <!-- RESULT -->
                     <div>
                         <div class="flex justify-between text-sm font-bold mb-2">
                             <span>Bruno Fernandes</span>
@@ -277,7 +303,6 @@
                         </div>
                     </div>
 
-                    <!-- RESULT -->
                     <div>
                         <div class="flex justify-between text-sm font-bold mb-2">
                             <span>Kylian Mbappé</span>
@@ -299,17 +324,15 @@
             </div>
         </section>
 
-        <!-- SEARCH + FILTER -->
+        <!-- SEARCH -->
         <section class="flex flex-col md:flex-row gap-5 justify-between items-center mb-10">
 
-            <!-- SEARCH -->
             <input type="text"
                 id="playerSearch"
                 onkeyup="searchPlayers()"
                 placeholder="🔍 Search players, teams, or stats..."
                 class="w-full md:max-w-sm px-5 py-3 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white focus:outline-none focus:border-red-500 transition-all shadow-lg">
 
-            <!-- FILTER BUTTONS -->
             <div class="flex gap-3 w-full md:w-auto">
 
                 <button id="btn-all"
@@ -320,13 +343,13 @@
 
                 <button id="btn-goals"
                     onclick="filterStat('goals')"
-                    class="filter-btn px-5 py-3 rounded-full text-sm font-black bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all">
+                    class="filter-btn px-5 py-3 rounded-full text-sm font-black bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
                     Goals
                 </button>
 
                 <button id="btn-assists"
                     onclick="filterStat('assists')"
-                    class="filter-btn px-5 py-3 rounded-full text-sm font-black bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all">
+                    class="filter-btn px-5 py-3 rounded-full text-sm font-black bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
                     Assists
                 </button>
             </div>
@@ -335,16 +358,15 @@
         <!-- PLAYER LIST -->
         <div id="player-list" class="space-y-6">
 
-            <!-- PLAYER CARD -->
+            <!-- PLAYER -->
             <div class="player-card flex flex-col md:flex-row md:items-center justify-between bg-white dark:bg-zinc-900 p-7 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-lg hover:shadow-red-500/10"
                 data-stat-type="goals"
                 data-search-pool="erling haaland manchester city goals">
 
                 <div class="flex items-center gap-5">
 
-                    <div class="text-4xl font-black text-red-500">
-                        01
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=400&auto=format&fit=crop"
+                        class="w-20 h-20 rounded-2xl object-cover border-2 border-red-500 shadow-lg">
 
                     <div>
 
@@ -358,6 +380,18 @@
 
                         <div class="text-xs uppercase tracking-[0.2em] text-zinc-500 mt-1">
                             Manchester City
+                        </div>
+
+                        <div class="flex gap-2 mt-3">
+
+                            <span class="px-2 py-1 rounded-full text-[10px] font-black bg-green-500/20 text-green-400">
+                                HOT FORM
+                            </span>
+
+                            <span class="px-2 py-1 rounded-full text-[10px] font-black bg-red-500/20 text-red-400">
+                                26 GOALS
+                            </span>
+
                         </div>
                     </div>
                 </div>
@@ -378,16 +412,15 @@
                 </div>
             </div>
 
-            <!-- PLAYER CARD -->
+            <!-- PLAYER -->
             <div class="player-card flex flex-col md:flex-row md:items-center justify-between bg-white dark:bg-zinc-900 p-7 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-lg hover:shadow-blue-500/10"
                 data-stat-type="assists"
                 data-search-pool="bruno fernandes manchester united assists">
 
                 <div class="flex items-center gap-5">
 
-                    <div class="text-4xl font-black text-blue-500">
-                        02
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=400&auto=format&fit=crop"
+                        class="w-20 h-20 rounded-2xl object-cover border-2 border-blue-500 shadow-lg">
 
                     <div>
 
@@ -414,23 +447,18 @@
                     <div class="text-right text-sm font-bold text-blue-500 uppercase tracking-widest">
                         Assists
                     </div>
-
-                    <div class="text-right text-[11px] text-zinc-500 mt-1 uppercase tracking-wider">
-                        Playmaker Leader
-                    </div>
                 </div>
             </div>
 
-            <!-- PLAYER CARD -->
+            <!-- PLAYER -->
             <div class="player-card flex flex-col md:flex-row md:items-center justify-between bg-white dark:bg-zinc-900 p-7 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-lg hover:shadow-orange-500/10"
                 data-stat-type="goals"
                 data-search-pool="kylian mbappe real madrid goals">
 
                 <div class="flex items-center gap-5">
 
-                    <div class="text-4xl font-black text-orange-500">
-                        03
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=400&auto=format&fit=crop"
+                        class="w-20 h-20 rounded-2xl object-cover border-2 border-orange-500 shadow-lg">
 
                     <div>
 
@@ -457,18 +485,97 @@
                     <div class="text-right text-sm font-bold text-orange-500 uppercase tracking-widest">
                         Goals
                     </div>
-
-                    <div class="text-right text-[11px] text-zinc-500 mt-1 uppercase tracking-wider">
-                        La Liga Runner Up
-                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- TRENDING -->
+        <section class="mt-16">
+
+            <div class="flex items-center justify-between mb-6">
+
+                <h2 class="text-3xl font-black tracking-tight">
+                    Trending Highlights
+                </h2>
+
+                <span class="text-xs uppercase tracking-[0.3em] text-zinc-500 font-bold">
+                    Updated Live
+                </span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <div class="overflow-hidden rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-lg">
+
+                    <img src="https://images.unsplash.com/photo-1547347298-4074fc3086f0?q=80&w=1200&auto=format&fit=crop"
+                        class="h-52 w-full object-cover">
+
+                    <div class="p-5">
+
+                        <div class="text-xs uppercase tracking-[0.2em] text-red-500 font-black">
+                            Top Scorer
+                        </div>
+
+                        <h3 class="text-xl font-black mt-2">
+                            Haaland Dominates Europe
+                        </h3>
+
+                        <p class="mt-3 text-sm text-zinc-500 leading-relaxed">
+                            Manchester City's striker continues his unstoppable scoring streak this season.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="overflow-hidden rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-lg">
+
+                    <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=1200&auto=format&fit=crop"
+                        class="h-52 w-full object-cover">
+
+                    <div class="p-5">
+
+                        <div class="text-xs uppercase tracking-[0.2em] text-blue-500 font-black">
+                            Playmaker
+                        </div>
+
+                        <h3 class="text-xl font-black mt-2">
+                            Bruno Controls Midfield
+                        </h3>
+
+                        <p class="mt-3 text-sm text-zinc-500 leading-relaxed">
+                            The Portuguese midfielder leads the assist charts with elite passing numbers.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="overflow-hidden rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-lg">
+
+                    <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=1200&auto=format&fit=crop"
+                        class="h-52 w-full object-cover">
+
+                    <div class="p-5">
+
+                        <div class="text-xs uppercase tracking-[0.2em] text-orange-500 font-black">
+                            Rising Star
+                        </div>
+
+                        <h3 class="text-xl font-black mt-2">
+                            Mbappé Lighting Up Spain
+                        </h3>
+
+                        <p class="mt-3 text-sm text-zinc-500 leading-relaxed">
+                            Real Madrid's superstar keeps delivering elite performances every week.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
     </main>
 
     <!-- FOOTER -->
     <div class="fixed bottom-5 right-5 text-zinc-500 dark:text-zinc-600 text-[11px] font-black tracking-[0.3em] uppercase">
-        Legendary Ace
+        Elite Football Analytics
     </div>
 
     <!-- JAVASCRIPT -->
@@ -645,4 +752,5 @@
     </script>
 
 </body>
+
 </html>

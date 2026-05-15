@@ -1,0 +1,25 @@
+name: Legendary Ace AI Update
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs daily at midnight
+  workflow_dispatch: # Allows you to update it manually anytime
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Run AI Script
+        run: python update_site.py
+      - name: Commit & Push Changes
+        run: |
+          git config --global user.name 'Legendary-Ace-AI'
+          git config --global user.email 'ai@legendaryace.com'
+          git add .
+          git commit -m "AI Auto-Update: Fresh Football News" || exit 0
+          git push

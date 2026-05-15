@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
-
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>European Football Hub</title>
+<title>European Finals Hub | Legendary Football Central</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 
@@ -32,135 +31,128 @@ tailwind.config = {
 
 body{
     background:
-    radial-gradient(circle at top right, rgba(239,68,68,.12), transparent 30%),
-    radial-gradient(circle at bottom left, rgba(59,130,246,.12), transparent 30%),
-    #050505;
+    radial-gradient(circle at top right, rgba(239,68,68,0.18), transparent 25%),
+    radial-gradient(circle at bottom left, rgba(59,130,246,0.12), transparent 25%),
+    #09090b;
+    overflow-x:hidden;
 }
 
-/* HERO */
-.hero-bg{
-    background-image:
-    linear-gradient(to bottom, rgba(0,0,0,.78), rgba(0,0,0,.92)),
-    url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1600&auto=format&fit=crop');
-    background-size:cover;
-    background-position:center;
-}
-
-/* GLASS */
 .glass{
-    backdrop-filter:blur(16px);
+    backdrop-filter: blur(14px);
 }
 
-/* SEARCH CARD */
-.news-card{
-    background-size:cover;
-    background-position:center;
-    position:relative;
-    overflow:hidden;
-}
-
-.news-card::before{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:linear-gradient(to top, rgba(0,0,0,.94), rgba(0,0,0,.45));
-}
-
-.news-content{
-    position:relative;
-    z-index:10;
-}
-
-/* TEAM CARDS */
 .team-card{
-    transition:all .35s ease;
+    transition:0.35s ease;
 }
 
 .team-card:hover{
-    transform:translateY(-7px);
-    box-shadow:0 0 30px rgba(239,68,68,.15);
+    transform:translateY(-6px) scale(1.01);
 }
 
-/* FINALS */
-.finals-bg{
+.news-card{
+    transition:0.35s ease;
+}
+
+.news-card:hover{
+    transform:translateY(-5px);
+}
+
+.hero-glow{
+    position:absolute;
+    inset:0;
     background:
-    linear-gradient(to right, rgba(0,0,0,.88), rgba(0,0,0,.92)),
-    url('https://images.unsplash.com/photo-1547347298-4074fc3086f0?q=80&w=1600&auto=format&fit=crop');
+    radial-gradient(circle at center,
+    rgba(239,68,68,0.25),
+    transparent 40%);
+    pointer-events:none;
+}
+
+.bg-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top,
+    rgba(0,0,0,0.88),
+    rgba(0,0,0,0.45));
+}
+
+.final-bg{
     background-size:cover;
     background-position:center;
 }
 
 </style>
+
 </head>
 
-<body class="text-zinc-100 font-sans min-h-screen overflow-x-hidden">
+<body class="text-white font-sans min-h-screen">
 
-<!-- NAVBAR -->
+<!-- TOP NAV -->
 <nav class="sticky top-0 z-50 bg-black/70 glass border-b border-zinc-800 shadow-2xl">
 
-<div class="max-w-7xl mx-auto px-6 py-5 flex justify-center">
+<div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-center gap-10 text-sm font-black tracking-widest uppercase">
 
-<div class="flex items-center gap-10 text-sm font-black tracking-[0.2em] uppercase">
+<a href="#" class="text-red-400 hover:text-red-300 transition-colors">News</a>
 
-<a href="#" class="text-red-500">
-News
-</a>
+<a href="#" class="text-blue-400 hover:text-blue-300 transition-colors">Leagues</a>
 
-<a href="#" class="hover:text-red-400 transition-colors">
-Leagues
-</a>
+<a href="#" class="text-yellow-400 hover:text-yellow-300 transition-colors">European Finals</a>
 
-<a href="#" class="hover:text-red-400 transition-colors">
-Players
-</a>
-
-<a href="#" class="hover:text-red-400 transition-colors">
-Finals
-</a>
-
-</div>
+<a href="#" class="text-zinc-300 hover:text-red-400 transition-colors">Dream Fixtures</a>
 
 </div>
 
 </nav>
 
 <!-- HERO -->
-<section class="hero-bg relative overflow-hidden">
+<section class="relative overflow-hidden">
 
-<div class="max-w-7xl mx-auto px-6 py-24">
+<!-- Background -->
+<div class="absolute inset-0 bg-cover bg-center opacity-40"
+style="background-image:url('https://images.unsplash.com/photo-1543357480-c60d40007a3f?q=80&w=2070&auto=format&fit=crop');">
+</div>
 
-<div class="max-w-4xl">
+<div class="bg-overlay"></div>
 
-<span class="px-4 py-2 rounded-full bg-red-500/20 border border-red-500/40 text-red-400 text-xs font-black tracking-[0.3em] uppercase">
-LIVE EUROPEAN FOOTBALL
-</span>
+<div class="hero-glow"></div>
 
-<h1 class="mt-8 text-6xl md:text-8xl font-black leading-none tracking-tight">
+<div class="relative max-w-6xl mx-auto px-6 py-24">
 
+<div class="max-w-3xl">
+
+<div class="inline-block px-4 py-1 rounded-full bg-red-500/20 border border-red-500 text-red-400 text-xs font-black tracking-[0.3em] uppercase mb-6 animate-pulse">
+European Finals Incoming
+</div>
+
+<h1 class="text-6xl md:text-8xl font-black italic leading-none tracking-tight">
+ROAD TO THE
+<span class="bg-gradient-to-r from-red-500 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
 EUROPEAN
-
-<span class="bg-gradient-to-r from-red-500 via-orange-400 to-yellow-300 bg-clip-text text-transparent">
-FOOTBALL HUB
 </span>
-
+FINALS
 </h1>
 
-<p class="mt-6 text-zinc-300 text-xl max-w-2xl leading-relaxed">
-Search your favorite football club and instantly discover
-breaking news, transfer rumors, European competition status,
-dream fixtures, and upcoming finals hype from the five biggest leagues.
+<p class="mt-6 text-zinc-300 text-lg leading-relaxed max-w-2xl">
+The biggest nights in club football are almost here.
+Champions League, Europa League and Conference League finals are ready to shake Europe.
+Massive clubs. Elite atmospheres. History waiting to be written.
 </p>
 
-<!-- SEARCH -->
-<div class="mt-10 max-w-2xl">
+<div class="flex flex-wrap gap-4 mt-8">
 
-<input
-type="text"
-id="teamSearch"
-onkeyup="searchTeam()"
-placeholder="🔍 Search Arsenal, PSG, Barcelona, Bayern..."
-class="w-full px-6 py-5 rounded-3xl bg-black/60 border border-zinc-700 text-white text-lg focus:outline-none focus:border-red-500 transition-all"
-/>
+<div class="px-5 py-3 rounded-2xl bg-zinc-900/70 border border-red-500 shadow-lg shadow-red-500/20">
+<div class="text-3xl font-black text-red-400">3</div>
+<div class="text-xs uppercase tracking-widest text-zinc-400">European Finals</div>
+</div>
+
+<div class="px-5 py-3 rounded-2xl bg-zinc-900/70 border border-blue-500 shadow-lg shadow-blue-500/20">
+<div class="text-3xl font-black text-blue-400">6</div>
+<div class="text-xs uppercase tracking-widest text-zinc-400">Finalists</div>
+</div>
+
+<div class="px-5 py-3 rounded-2xl bg-zinc-900/70 border border-yellow-500 shadow-lg shadow-yellow-500/20">
+<div class="text-3xl font-black text-yellow-400">∞</div>
+<div class="text-xs uppercase tracking-widest text-zinc-400">Drama Expected</div>
+</div>
 
 </div>
 
@@ -170,71 +162,103 @@ class="w-full px-6 py-5 rounded-3xl bg-black/60 border border-zinc-700 text-whit
 
 </section>
 
-<!-- SEARCH RESULTS -->
-<section class="max-w-7xl mx-auto px-6 py-12">
+<!-- SEARCH -->
+<section class="max-w-6xl mx-auto px-6 mt-12">
 
-<div id="search-result"
-class="hidden news-card rounded-3xl border border-zinc-800 min-h-[430px] p-10 shadow-2xl">
+<div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-6 shadow-2xl">
 
-<div class="news-content max-w-3xl">
-
-<div class="flex items-center gap-3 mb-5">
-
-<span id="team-league"
-class="px-3 py-1 rounded-full bg-red-500 text-xs font-black uppercase tracking-widest">
-Premier League
-</span>
-
-<span class="px-3 py-1 rounded-full bg-white/10 text-xs font-black uppercase tracking-widest">
-Club Report
-</span>
-
-</div>
-
-<h2 id="team-title"
-class="text-5xl font-black leading-tight">
-Arsenal
+<h2 class="text-2xl font-black mb-5 tracking-tight">
+🔍 SEARCH YOUR TEAM
 </h2>
 
-<p id="team-news"
-class="mt-6 text-zinc-200 text-lg leading-relaxed">
-Club info appears here.
+<input
+type="text"
+id="teamSearch"
+onkeyup="searchTeams()"
+placeholder="Search Arsenal, PSG, Tottenham, Chelsea..."
+class="w-full px-5 py-4 rounded-2xl bg-black border border-zinc-700 focus:border-red-500 outline-none text-white text-lg"
+/>
+
+<div id="search-results" class="grid md:grid-cols-2 gap-6 mt-8">
+
+<!-- Arsenal -->
+<div class="team-card relative overflow-hidden rounded-3xl border border-zinc-800 min-h-[320px] team-item"
+data-team="arsenal">
+
+<div class="absolute inset-0 final-bg"
+style="background-image:url('https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg'); opacity:0.18;">
+</div>
+
+<div class="bg-overlay"></div>
+
+<div class="relative p-8">
+
+<div class="text-red-400 font-black uppercase tracking-[0.25em] text-xs">
+Premier League
+</div>
+
+<h3 class="text-4xl font-black mt-3">
+Arsenal
+</h3>
+
+<p class="mt-4 text-zinc-300 leading-relaxed">
+Arsenal are pushing for European glory with an explosive attacking system and one of the youngest elite squads in Europe.
+Fans believe this could finally become a legendary era under Mikel Arteta.
 </p>
 
-<!-- TEAM INFO -->
-<div class="grid md:grid-cols-3 gap-4 mt-10">
+<div class="mt-6 flex gap-3 flex-wrap">
 
-<div class="bg-black/50 border border-zinc-700 rounded-2xl p-5">
-<div class="text-xs uppercase tracking-widest text-zinc-500 font-black">
-Manager
-</div>
+<span class="px-3 py-1 rounded-full bg-red-500/20 border border-red-500 text-red-400 text-xs font-bold">
+Premier League Contenders
+</span>
 
-<div id="team-manager"
-class="text-xl font-black mt-2">
-Mikel Arteta
-</div>
+<span class="px-3 py-1 rounded-full bg-yellow-500/20 border border-yellow-500 text-yellow-300 text-xs font-bold">
+European Elite
+</span>
+
 </div>
 
-<div class="bg-black/50 border border-zinc-700 rounded-2xl p-5">
-<div class="text-xs uppercase tracking-widest text-zinc-500 font-black">
-Stadium
 </div>
 
-<div id="team-stadium"
-class="text-xl font-black mt-2">
-Emirates Stadium
-</div>
 </div>
 
-<div class="bg-black/50 border border-zinc-700 rounded-2xl p-5">
-<div class="text-xs uppercase tracking-widest text-zinc-500 font-black">
-European Status
+<!-- PSG -->
+<div class="team-card relative overflow-hidden rounded-3xl border border-zinc-800 min-h-[320px] team-item"
+data-team="psg paris saint germain">
+
+<div class="absolute inset-0 final-bg"
+style="background-image:url('https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg'); opacity:0.18;">
 </div>
 
-<div id="team-status"
-class="text-xl font-black mt-2 text-red-400">
-Champions League
+<div class="bg-overlay"></div>
+
+<div class="relative p-8">
+
+<div class="text-blue-400 font-black uppercase tracking-[0.25em] text-xs">
+Ligue 1
 </div>
+
+<h3 class="text-4xl font-black mt-3">
+PSG
+</h3>
+
+<p class="mt-4 text-zinc-300 leading-relaxed">
+Paris Saint-Germain are chasing European dominance again with superstar quality and terrifying attacking speed.
+The atmosphere around the club is electric before the final.
+</p>
+
+<div class="mt-6 flex gap-3 flex-wrap">
+
+<span class="px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500 text-blue-400 text-xs font-bold">
+Champions League Finalists
+</span>
+
+<span class="px-3 py-1 rounded-full bg-red-500/20 border border-red-500 text-red-400 text-xs font-bold">
+French Champions
+</span>
+
+</div>
+
 </div>
 
 </div>
@@ -246,99 +270,93 @@ Champions League
 </section>
 
 <!-- EUROPEAN FINALS -->
-<section class="max-w-7xl mx-auto px-6 pb-14">
+<section class="max-w-6xl mx-auto px-6 py-14">
 
-<div class="finals-bg rounded-3xl border border-zinc-800 p-10 shadow-2xl relative overflow-hidden">
-
-<div class="max-w-3xl">
-
-<span class="px-4 py-2 rounded-full bg-red-500/20 border border-red-500/40 text-red-400 text-xs font-black uppercase tracking-[0.3em]">
-EUROPEAN FINALS
+<h2 class="text-5xl font-black italic tracking-tight mb-10">
+EUROPEAN
+<span class="bg-gradient-to-r from-red-500 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
+FINALS
 </span>
-
-<h2 class="mt-6 text-5xl font-black leading-tight">
-THE BIGGEST NIGHTS
-IN FOOTBALL ARE
-COMING 🔥
+2026
 </h2>
 
-<p class="mt-6 text-zinc-300 text-lg leading-relaxed">
-The atmosphere across Europe is exploding.
-Fans are preparing for unforgettable nights filled with pressure,
-drama, goals, heartbreak, and history.
-Every tackle matters. Every goal changes football forever.
-</p>
+<div class="space-y-8">
 
-<!-- CHAMPIONS LEAGUE -->
-<div class="mt-10 bg-black/50 border border-red-500/20 rounded-3xl p-7">
+<!-- UCL -->
+<div class="news-card relative overflow-hidden rounded-3xl border border-zinc-800 shadow-2xl">
 
-<div class="text-xs uppercase tracking-[0.3em] text-red-400 font-black">
-Champions League Final
+<div class="absolute inset-0 final-bg"
+style="background-image:url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1974&auto=format&fit=crop'); opacity:0.28;">
 </div>
 
-<h3 class="mt-3 text-4xl font-black">
-Arsenal vs PSG
+<div class="bg-overlay"></div>
+
+<div class="relative p-10">
+
+<div class="text-red-400 text-xs font-black uppercase tracking-[0.3em]">
+UEFA Champions League Final
+</div>
+
+<h3 class="text-5xl font-black mt-4">
+PSG vs Inter Milan
 </h3>
 
-<p class="mt-4 text-zinc-300 leading-relaxed text-lg">
-A brand new European rivalry.
-One club chasing history.
-Another searching for ultimate glory.
-This final could become legendary forever.
+<p class="mt-5 text-zinc-300 text-lg leading-relaxed max-w-3xl">
+One of the most anticipated Champions League finals in years.
+PSG want ultimate European redemption while Inter Milan want another historic continental crown.
+Millions across the world are waiting for kickoff.
 </p>
+
+<div class="mt-6 flex gap-3 flex-wrap">
+
+<span class="px-4 py-2 rounded-full bg-red-500/20 border border-red-500 text-red-400 text-sm font-bold">
+UCL FINAL
+</span>
+
+<span class="px-4 py-2 rounded-full bg-blue-500/20 border border-blue-500 text-blue-400 text-sm font-bold">
+Massive Global Audience
+</span>
 
 </div>
 
-<!-- EUROPA + CONFERENCE -->
-<div class="mt-8 grid md:grid-cols-2 gap-5">
+</div>
+
+</div>
 
 <!-- EUROPA -->
-<div class="relative overflow-hidden bg-gradient-to-br from-orange-950 via-black to-zinc-900 border border-orange-500/30 rounded-3xl p-6 shadow-2xl">
+<div class="news-card relative overflow-hidden rounded-3xl border border-zinc-800 shadow-2xl">
 
-<div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,#f97316,transparent_40%)]"></div>
+<div class="absolute inset-0 final-bg"
+style="background-image:url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=1974&auto=format&fit=crop'); opacity:0.25;">
+</div>
 
-<div class="relative z-10">
+<div class="bg-overlay"></div>
 
-<span class="px-3 py-1 rounded-full bg-orange-500/20 border border-orange-500/40 text-orange-400 text-[10px] font-black uppercase tracking-[0.3em]">
+<div class="relative p-10">
+
+<div class="text-orange-400 text-xs font-black uppercase tracking-[0.3em]">
+UEFA Europa League Final
+</div>
+
+<h3 class="text-5xl font-black mt-4">
+Tottenham vs Manchester United
+</h3>
+
+<p class="mt-5 text-zinc-300 text-lg leading-relaxed max-w-3xl">
+An all-English war is coming.
+Tottenham are desperate for silverware while Manchester United want to rescue their season with European glory.
+Expect chaos, tension and unforgettable drama.
+</p>
+
+<div class="mt-6 flex gap-3 flex-wrap">
+
+<span class="px-4 py-2 rounded-full bg-orange-500/20 border border-orange-500 text-orange-400 text-sm font-bold">
 Europa League Final
 </span>
 
-<h3 class="mt-5 text-4xl font-black">
-Liverpool vs AC Milan
-</h3>
-
-<p class="mt-4 text-zinc-300 leading-relaxed text-lg">
-European history returns once again.
-Two legendary clubs.
-One unforgettable final.
-Football fans around the world are waiting for chaos.
-</p>
-
-<div class="mt-6 grid grid-cols-2 gap-4">
-
-<div class="bg-black/40 border border-orange-500/20 rounded-2xl p-4">
-
-<div class="text-xs uppercase tracking-widest text-orange-400 font-black">
-Key Battle
-</div>
-
-<div class="mt-2 text-xl font-black">
-Attack vs Experience
-</div>
-
-</div>
-
-<div class="bg-black/40 border border-orange-500/20 rounded-2xl p-4">
-
-<div class="text-xs uppercase tracking-widest text-orange-400 font-black">
-Atmosphere
-</div>
-
-<div class="mt-2 text-xl font-black">
-Absolute Chaos 🔥
-</div>
-
-</div>
+<span class="px-4 py-2 rounded-full bg-red-500/20 border border-red-500 text-red-400 text-sm font-bold">
+England vs England
+</span>
 
 </div>
 
@@ -347,54 +365,38 @@ Absolute Chaos 🔥
 </div>
 
 <!-- CONFERENCE -->
-<div class="relative overflow-hidden bg-gradient-to-br from-green-950 via-black to-zinc-900 border border-green-500/30 rounded-3xl p-6 shadow-2xl">
+<div class="news-card relative overflow-hidden rounded-3xl border border-zinc-800 shadow-2xl">
 
-<div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,#22c55e,transparent_40%)]"></div>
+<div class="absolute inset-0 final-bg"
+style="background-image:url('https://images.unsplash.com/photo-1518604666860-9ed391f76460?q=80&w=1974&auto=format&fit=crop'); opacity:0.25;">
+</div>
 
-<div class="relative z-10">
+<div class="bg-overlay"></div>
 
-<span class="px-3 py-1 rounded-full bg-green-500/20 border border-green-500/40 text-green-400 text-[10px] font-black uppercase tracking-[0.3em]">
+<div class="relative p-10">
+
+<div class="text-green-400 text-xs font-black uppercase tracking-[0.3em]">
+UEFA Conference League Final
+</div>
+
+<h3 class="text-5xl font-black mt-4">
+Chelsea vs Fiorentina
+</h3>
+
+<p class="mt-5 text-zinc-300 text-lg leading-relaxed max-w-3xl">
+Chelsea are aiming to dominate another European competition while Fiorentina dream of shocking the football world.
+The atmosphere around this final is building rapidly.
+</p>
+
+<div class="mt-6 flex gap-3 flex-wrap">
+
+<span class="px-4 py-2 rounded-full bg-green-500/20 border border-green-500 text-green-400 text-sm font-bold">
 Conference League Final
 </span>
 
-<h3 class="mt-5 text-4xl font-black">
-Aston Villa vs Fiorentina
-</h3>
-
-<p class="mt-4 text-zinc-300 leading-relaxed text-lg">
-An emotional European showdown between two clubs desperate for glory.
-Could this become a brand new rivalry in Europe?
-</p>
-
-<div class="mt-6 grid grid-cols-2 gap-4">
-
-<div class="bg-black/40 border border-green-500/20 rounded-2xl p-4">
-
-<div class="text-xs uppercase tracking-widest text-green-400 font-black">
-Dream Fixture
-</div>
-
-<div class="mt-2 text-xl font-black">
-Pure Drama
-</div>
-
-</div>
-
-<div class="bg-black/40 border border-green-500/20 rounded-2xl p-4">
-
-<div class="text-xs uppercase tracking-widest text-green-400 font-black">
-Fan Debate
-</div>
-
-<div class="mt-2 text-lg font-black">
-Who takes it?
-</div>
-
-</div>
-
-</div>
-
-</div>
+<span class="px-4 py-2 rounded-full bg-blue-500/20 border border-blue-500 text-blue-400 text-sm font-bold">
+European Night
+</span>
 
 </div>
 
@@ -406,74 +408,59 @@ Who takes it?
 
 </section>
 
-<!-- DREAM FIXURES -->
-<section class="max-w-7xl mx-auto px-6 pb-16">
+<!-- DREAM FIXTURES -->
+<section class="max-w-6xl mx-auto px-6 pb-20">
 
-<h2 class="text-4xl font-black mb-10">
-DREAM
-<span class="text-red-500">
-MATCHUPS
-</span>
+<h2 class="text-4xl font-black mb-8">
+🔥 DREAM FIXTURES
 </h2>
 
-<div class="grid md:grid-cols-3 gap-6">
+<div class="grid md:grid-cols-2 gap-8">
 
-<div class="team-card bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden">
+<div class="relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900 p-8 shadow-xl">
 
-<div class="h-56 bg-cover bg-center"
-style="background-image:url('https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?q=80&w=1400&auto=format&fit=crop');">
+<div class="text-xs font-black tracking-[0.3em] uppercase text-red-400">
+Dream Matchup
 </div>
 
-<div class="p-7">
-
-<h3 class="text-3xl font-black">
-Barcelona vs Bayern
+<h3 class="text-4xl font-black mt-4">
+Arsenal vs PSG
 </h3>
 
-<p class="mt-4 text-zinc-400 leading-relaxed">
-Would this become the most tactical final in modern football?
+<p class="mt-4 text-zinc-300 leading-relaxed">
+Imagine Arsenal and PSG meeting in a Champions League final.
+Elite attacks. Huge fanbases. Unreal atmosphere.
+Would this become one of the greatest modern football nights ever?
 </p>
 
+<div class="mt-6">
+<button class="px-5 py-3 rounded-2xl bg-gradient-to-r from-red-500 to-orange-500 font-black hover:scale-105 transition-all">
+YES — WE NEED THIS 🔥
+</button>
 </div>
 
 </div>
 
-<div class="team-card bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden">
+<div class="relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900 p-8 shadow-xl">
 
-<div class="h-56 bg-cover bg-center"
-style="background-image:url('https://images.unsplash.com/photo-1518604666860-9ed391f76460?q=80&w=1400&auto=format&fit=crop');">
+<div class="text-xs font-black tracking-[0.3em] uppercase text-blue-400">
+Fantasy European Clash
 </div>
 
-<div class="p-7">
-
-<h3 class="text-3xl font-black">
-Real Madrid vs Man City
+<h3 class="text-4xl font-black mt-4">
+Real Madrid vs Manchester City
 </h3>
 
-<p class="mt-4 text-zinc-400 leading-relaxed">
-Two giants. Endless goals. Pure Champions League madness.
+<p class="mt-4 text-zinc-300 leading-relaxed">
+Two superpowers colliding again under the lights.
+Would this be the highest quality football match possible right now?
+Fans still cannot get enough of this rivalry.
 </p>
 
-</div>
-
-</div>
-
-<div class="team-card bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden">
-
-<div class="h-56 bg-cover bg-center"
-style="background-image:url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=1400&auto=format&fit=crop');">
-</div>
-
-<div class="p-7">
-
-<h3 class="text-3xl font-black">
-Arsenal vs AC Milan
-</h3>
-
-<p class="mt-4 text-zinc-400 leading-relaxed">
-Would you want to see this European super clash happen one day?
-</p>
-
+<div class="mt-6">
+<button class="px-5 py-3 rounded-2xl bg-gradient-to-r from-blue-500 to-cyan-500 font-black hover:scale-105 transition-all">
+ABSOLUTE CINEMA ⚽
+</button>
 </div>
 
 </div>
@@ -483,141 +470,46 @@ Would you want to see this European super clash happen one day?
 </section>
 
 <!-- FOOTER -->
-<div class="fixed bottom-4 right-4 text-zinc-600 text-[11px] uppercase tracking-[0.3em] font-black">
-European Football Hub
-</div>
+<footer class="border-t border-zinc-800 py-8 text-center text-zinc-500 text-sm tracking-widest uppercase">
+European Finals Central 2026
+</footer>
 
 <script>
 
-/* SEARCH DATABASE */
-const teams = {
+// THEME TOGGLE
+function toggleTheme(){
 
-arsenal:{
-league:"Premier League",
-title:"Arsenal",
-manager:"Mikel Arteta",
-stadium:"Emirates Stadium",
-status:"Champions League Finalists",
-news:"Arsenal are preparing for one of the biggest nights in club history as fans dream of lifting a major European trophy.",
-image:"https://images.unsplash.com/photo-1508098682722-e99c643e7485?q=80&w=1600&auto=format&fit=crop"
-},
+document.documentElement.classList.toggle('dark');
 
-psg:{
-league:"Ligue 1",
-title:"Paris Saint-Germain",
-manager:"Luis Enrique",
-stadium:"Parc des Princes",
-status:"Champions League Finalists",
-news:"PSG believe this could finally become their historic European season with elite attacking power and massive confidence.",
-image:"https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?q=80&w=1600&auto=format&fit=crop"
-},
-
-barcelona:{
-league:"La Liga",
-title:"Barcelona",
-manager:"Hansi Flick",
-stadium:"Camp Nou",
-status:"UCL Qualified",
-news:"Barcelona continue rebuilding around young stars while remaining one of Europe's most entertaining attacking teams.",
-image:"https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=1600&auto=format&fit=crop"
-},
-
-realmadrid:{
-league:"La Liga",
-title:"Real Madrid",
-manager:"Carlo Ancelotti",
-stadium:"Santiago Bernabéu",
-status:"European Giants",
-news:"Real Madrid remain one of the most feared clubs in world football with endless European experience.",
-image:"https://images.unsplash.com/photo-1577223625816-7546f13df25d?q=80&w=1600&auto=format&fit=crop"
-},
-
-bayern:{
-league:"Bundesliga",
-title:"Bayern Munich",
-manager:"Vincent Kompany",
-stadium:"Allianz Arena",
-status:"Bundesliga Leaders",
-news:"Bayern Munich continue dominating Germany while rebuilding another terrifying European squad.",
-image:"https://images.unsplash.com/photo-1486286701208-1d58e9338013?q=80&w=1600&auto=format&fit=crop"
-},
-
-milan:{
-league:"Serie A",
-title:"AC Milan",
-manager:"Paulo Fonseca",
-stadium:"San Siro",
-status:"Europa Finalists",
-news:"AC Milan are chasing another famous European trophy with experience and dangerous attacking football.",
-image:"https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1600&auto=format&fit=crop"
-},
-
-liverpool:{
-league:"Premier League",
-title:"Liverpool",
-manager:"Arne Slot",
-stadium:"Anfield",
-status:"Europa Finalists",
-news:"Liverpool fans are preparing for another emotional European final night under the lights.",
-image:"https://images.unsplash.com/photo-1522778526097-ce0a22ceb253?q=80&w=1600&auto=format&fit=crop"
-},
-
-astonvilla:{
-league:"Premier League",
-title:"Aston Villa",
-manager:"Unai Emery",
-stadium:"Villa Park",
-status:"Conference Finalists",
-news:"Aston Villa are dreaming about European silverware after an incredible continental run.",
-image:"https://images.unsplash.com/photo-1552667466-07770ae110d0?q=80&w=1600&auto=format&fit=crop"
 }
 
-};
+// SEARCH
+function searchTeams(){
 
-/* SEARCH */
-function searchTeam(){
-
-const input =
+const query =
 document.getElementById('teamSearch')
 .value
-.toLowerCase()
-.replace(/\s/g,'');
+.toLowerCase();
 
-const result =
-document.getElementById('search-result');
+const teams =
+document.querySelectorAll('.team-item');
 
-if(teams[input]){
+teams.forEach(team=>{
 
-const team = teams[input];
+const data =
+team.getAttribute('data-team');
 
-result.classList.remove('hidden');
+if(data.includes(query)){
 
-result.style.backgroundImage =
-`linear-gradient(to top, rgba(0,0,0,.94), rgba(0,0,0,.45)), url('${team.image}')`;
-
-document.getElementById('team-title').innerText =
-team.title;
-
-document.getElementById('team-news').innerText =
-team.news;
-
-document.getElementById('team-manager').innerText =
-team.manager;
-
-document.getElementById('team-stadium').innerText =
-team.stadium;
-
-document.getElementById('team-status').innerText =
-team.status;
-
-document.getElementById('team-league').innerText =
-team.league;
+team.style.display='block';
 
 }else{
 
-result.classList.add('hidden');
+team.style.display='none';
 
 }
+
+});
 
 }
 

@@ -1,126 +1,590 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legendary Ace | UCL & Leagues</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>European Football Hub | UCL & Leagues</title>
+
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
+
     <script>
         tailwind.config = {
             darkMode: 'class',
-            theme: { extend: { colors: { zinc: { 750: '#3f3f46' } } } }
+            theme: {
+                extend: {
+                    colors: {
+                        zinc: {
+                            750: '#3f3f46'
+                        }
+                    }
+                }
+            }
         }
     </script>
+
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-image:
+                radial-gradient(circle at top right, rgba(239,68,68,0.08), transparent 25%),
+                radial-gradient(circle at bottom left, rgba(59,130,246,0.06), transparent 25%);
+        }
+
+        .glass {
+            backdrop-filter: blur(14px);
+        }
+
+        .team-card,
+        .news-card,
+        .fixture-card {
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease,
+                opacity 0.35s ease;
+        }
+
+        .team-card:hover,
+        .news-card:hover,
+        .fixture-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .hero-glow {
+            animation: pulseGlow 4s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            from {
+                opacity: 0.5;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
-<body class="dark bg-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 font-sans transition-colors duration-300">
-    
-    <!-- Top Navigation Bar (Underline borders removed for a cleaner look) -->
-    <nav class="p-6 bg-white dark:bg-zinc-950 flex justify-between items-center border-b border-zinc-200 dark:border-zinc-800 sticky top-0 z-50 shadow-lg transition-colors duration-300">
-        <div class="w-10"></div> 
-        <div class="flex space-x-12">
-            <a href="index.html" class="text-zinc-700 dark:text-zinc-300 hover:text-red-500 dark:hover:text-red-400 font-semibold transition-colors duration-200">NEWS</a>
-            <a href="leagues.html" class="text-red-500 dark:text-red-400 font-black tracking-wide pb-1">LEAGUES</a>
-            <a href="players.html" class="text-zinc-700 dark:text-zinc-300 hover:text-red-500 dark:hover:text-red-400 font-semibold transition-colors duration-200">PLAYERS</a>
-            <a href="about.html" class="text-zinc-700 dark:text-zinc-300 hover:text-red-500 dark:hover:text-red-400 font-semibold transition-colors duration-200">ABOUT</a>
+
+<body class="bg-zinc-100 text-zinc-900 dark:bg-[#0a0a0a] dark:text-zinc-100 font-sans transition-all duration-500 min-h-screen overflow-x-hidden">
+
+    <!-- Background Texture -->
+    <div class="fixed inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(circle,#ffffff_1px,transparent_1px)] bg-[size:22px_22px]"></div>
+
+    <!-- NAVBAR -->
+    <nav class="sticky top-0 z-50 bg-white/80 dark:bg-black/70 glass border-b border-zinc-200 dark:border-zinc-800 shadow-xl">
+
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+
+            <!-- NAV LINKS -->
+            <div class="flex items-center gap-10 text-sm font-bold tracking-wide mx-auto">
+
+                <a href="index.html"
+                    class="text-zinc-700 dark:text-zinc-300 hover:text-red-500 transition-colors">
+                    NEWS
+                </a>
+
+                <a href="leagues.html"
+                    class="text-red-500 dark:text-red-400 transition-colors">
+                    LEAGUES
+                </a>
+
+                <a href="players.html"
+                    class="text-zinc-700 dark:text-zinc-300 hover:text-red-500 transition-colors">
+                    PLAYERS
+                </a>
+
+                <a href="about.html"
+                    class="text-zinc-700 dark:text-zinc-300 hover:text-red-500 transition-colors">
+                    ABOUT
+                </a>
+            </div>
+
+            <!-- THEME TOGGLE -->
+            <button onclick="toggleTheme()"
+                class="p-3 rounded-2xl bg-zinc-200 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 hover:scale-105 transition-all duration-300">
+
+                <!-- SUN -->
+                <svg class="w-5 h-5 text-amber-400 hidden dark:block"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24">
+
+                    <path stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z">
+                    </path>
+                </svg>
+
+                <!-- MOON -->
+                <svg class="w-5 h-5 text-zinc-700 dark:hidden"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24">
+
+                    <path stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                    </path>
+                </svg>
+            </button>
         </div>
-        <button onclick="toggleTheme()" class="p-2.5 rounded-xl bg-zinc-200 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-all active:scale-95" aria-label="Toggle Theme">
-            <svg id="sun-icon" class="w-5 h-5 text-amber-400 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
-            <svg id="moon-icon" class="w-5 h-5 text-zinc-700 dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-        </button>
     </nav>
 
-    <main class="max-w-4xl mx-auto py-12 px-6">
-        <h1 class="text-5xl font-black mb-10 italic tracking-tight text-zinc-900 dark:text-white">
-            THE ROAD TO <span class="bg-gradient-to-r from-red-600 to-orange-500 dark:from-red-500 dark:to-orange-400 bg-clip-text text-transparent">26/27 UCL</span>
-        </h1>
+    <!-- MAIN -->
+    <main class="max-w-7xl mx-auto px-6 py-12">
 
-        <!-- Live Search Bar -->
-        <div class="mb-8 max-w-md">
-            <input type="text" id="teamSearch" onkeyup="searchTeams()" placeholder="🔍 Quick search teams or leagues..." class="w-full px-5 py-3 rounded-xl bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white border border-zinc-300 dark:border-zinc-700 focus:outline-none focus:border-red-500 transition-colors shadow-sm">
-        </div>
+        <!-- HERO -->
+        <section class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-zinc-950 via-black to-zinc-900 border border-zinc-800 shadow-2xl p-10 mb-14">
 
-        <div class="grid md:grid-cols-2 gap-8">
-            <!-- Left Panel: Qualified Teams -->
-            <div class="bg-white dark:bg-zinc-800 p-8 rounded-3xl border border-zinc-200 dark:border-zinc-700 shadow-md transition-all duration-300">
-                <div class="flex items-center space-x-3 mb-6">
-                    <div class="w-2.5 h-6 bg-red-500 rounded-full"></div>
-                    <h3 class="text-2xl font-extrabold text-red-500 dark:text-red-400 tracking-tight">UCL Qualified Teams</h3>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#ef4444,transparent_35%)] opacity-20 hero-glow"></div>
+
+            <div class="relative z-10">
+
+                <div class="inline-block px-4 py-1 rounded-full bg-red-950/50 text-red-400 text-xs font-black tracking-[0.3em] uppercase mb-5 animate-pulse">
+                    European Finals Incoming
                 </div>
-                
-                <!-- ID LINKED TO PYTHON AUTOMATION CORE FOR SAFE UPDATES -->
-                <ul id="leagues-feed" class="space-y-4">
-                    <!-- Python will populate and clear rows inside here dynamically -->
-                </ul>
+
+                <h1 class="text-5xl md:text-7xl font-black italic tracking-tight leading-none">
+                    ROAD TO THE
+                    <span class="bg-gradient-to-r from-red-500 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
+                        EUROPEAN FINALS
+                    </span>
+                </h1>
+
+                <p class="mt-6 text-zinc-300 text-lg max-w-3xl leading-relaxed">
+                    The biggest football nights are almost here.
+                    Champions League glory, Europa League chaos,
+                    and unforgettable European drama are coming soon.
+                    Every tackle matters. Every goal changes history.
+                </p>
+
+                <!-- FINALS HYPE -->
+                <div class="grid md:grid-cols-3 gap-5 mt-10">
+
+                    <div class="bg-zinc-900/70 border border-zinc-800 rounded-2xl p-6">
+                        <div class="text-red-400 font-black uppercase tracking-widest text-xs">
+                            UCL Final
+                        </div>
+
+                        <h3 class="text-2xl font-black mt-3">
+                            Real Madrid vs Manchester City
+                        </h3>
+
+                        <p class="text-zinc-400 mt-2">
+                            Galácticos against Pep's machine.
+                            The football world stops for this one.
+                        </p>
+                    </div>
+
+                    <div class="bg-zinc-900/70 border border-zinc-800 rounded-2xl p-6">
+                        <div class="text-blue-400 font-black uppercase tracking-widest text-xs">
+                            Europa League
+                        </div>
+
+                        <h3 class="text-2xl font-black mt-3">
+                            Liverpool vs AC Milan
+                        </h3>
+
+                        <p class="text-zinc-400 mt-2">
+                            Another legendary European chapter
+                            between two historic giants.
+                        </p>
+                    </div>
+
+                    <div class="bg-zinc-900/70 border border-zinc-800 rounded-2xl p-6">
+                        <div class="text-orange-400 font-black uppercase tracking-widest text-xs">
+                            Conference League
+                        </div>
+
+                        <h3 class="text-2xl font-black mt-3">
+                            Aston Villa vs Roma
+                        </h3>
+
+                        <p class="text-zinc-400 mt-2">
+                            Tactical battles, rising stars,
+                            and one trophy left to claim.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEARCH -->
+        <section class="mb-12">
+
+            <div class="max-w-xl">
+                <input type="text"
+                    id="teamSearch"
+                    onkeyup="searchTeams()"
+                    placeholder="🔍 Search your favorite team..."
+                    class="w-full px-5 py-4 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white focus:outline-none focus:border-red-500 shadow-lg transition-all">
             </div>
 
-            <!-- Right Panel: Fixed Domestic Forecast Matrix Data -->
-            <div class="bg-white dark:bg-zinc-800 p-8 rounded-3xl border border-zinc-200 dark:border-zinc-700 shadow-md transition-all duration-300 flex flex-col justify-between">
-                <div>
-                    <div class="flex items-center space-x-3 mb-6">
-                        <div class="w-2.5 h-6 bg-blue-500 rounded-full"></div>
-                        <h3 class="text-2xl font-extrabold text-blue-500 dark:text-blue-400 tracking-tight">Domestic Forecasts</h3>
-                    </div>
-                    
-                    <div class="space-y-6">
-                        <!-- What's Happening -->
-                        <div class="border-b border-zinc-100 dark:border-zinc-700 pb-4">
-                            <div class="flex items-center justify-between">
-                                <span class="font-black text-sm tracking-widest text-red-500 uppercase">What's Happening</span>
-                                <span class="text-xs font-bold text-red-500 bg-red-50 dark:bg-red-950/50 px-2 py-0.5 rounded">La Liga</span>
-                            </div>
-                            <p class="text-zinc-600 dark:text-zinc-300 mt-2 text-base leading-relaxed">
-                                <strong class="text-zinc-900 dark:text-white">Barcelona</strong> secures the trophy completely following their definitive standard win over Real Madrid.
-                            </p>
-                        </div>
+            <p class="mt-3 text-zinc-500 dark:text-zinc-400 text-sm">
+                Search teams from the Premier League, La Liga, Serie A,
+                Bundesliga, and Ligue 1.
+            </p>
+        </section>
 
-                        <!-- What's Gonna Happen -->
-                        <div class="border-b border-zinc-100 dark:border-zinc-700 pb-4">
-                            <div class="flex items-center justify-between">
-                                <span class="font-black text-sm tracking-widest text-blue-500 uppercase">What's Gonna Happen</span>
-                                <span class="text-xs font-bold text-blue-500 bg-blue-50 dark:bg-blue-950/50 px-2 py-0.5 rounded animate-pulse">EPL Race</span>
-                            </div>
-                            <p class="text-zinc-600 dark:text-zinc-300 mt-2 text-base leading-relaxed">
-                                <strong class="text-zinc-900 dark:text-white">Arsenal</strong> leads Manchester City by 2 points with 2 matches remaining. The crown goes down to the wire next week.
-                            </p>
-                        </div>
+        <!-- TEAM NEWS -->
+        <section class="grid md:grid-cols-2 xl:grid-cols-3 gap-8 mb-16" id="teamNewsContainer">
 
-                        <!-- What Will Not Happen -->
-                        <div>
-                            <div class="flex items-center justify-between">
-                                <span class="font-black text-sm tracking-widest text-zinc-400 uppercase">What Won't Happen</span>
-                                <span class="text-xs font-bold text-zinc-500 bg-zinc-100 dark:bg-zinc-900 px-2 py-0.5 rounded">Serie A</span>
-                            </div>
-                            <p class="text-zinc-600 dark:text-zinc-300 mt-2 text-base leading-relaxed">
-                                <strong class="text-zinc-900 dark:text-white">Juventus</strong> is mathematically out of the title loop. They will not catch Inter Milan or Napoli this season.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            <!-- CARD -->
+            <div class="team-card bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-xl"
+                data-team="real madrid la liga spain">
 
-                <!-- Fan Predictor Voting Module -->
-                <div class="mt-8 pt-6 border-t border-zinc-200 dark:border-zinc-700 text-center">
-                    <span class="text-xs font-black tracking-widest text-zinc-400 dark:text-zinc-500 uppercase">Who wins the PL? Voter Poll</span>
-                    <div class="flex gap-3 mt-3">
-                        <button onclick="castVote()" class="flex-1 py-2 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 font-bold hover:border-red-500 hover:text-red-500 transition-all text-sm">Arsenal</button>
-                        <button onclick="castVote()" class="flex-1 py-2 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 font-bold hover:border-blue-400 hover:text-blue-400 transition-all text-sm">Man City</button>
+                <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop"
+                    class="w-full h-56 object-cover"
+                    alt="Football stadium">
+
+                <div class="p-6">
+
+                    <div class="text-xs uppercase tracking-widest font-black text-red-500">
+                        La Liga
                     </div>
-                    <div id="vote-receipt" class="hidden text-xs text-green-500 font-bold mt-3">✓ Prediction counted! Live distribution updated.</div>
+
+                    <h2 class="text-3xl font-black mt-2">
+                        Real Madrid
+                    </h2>
+
+                    <p class="text-zinc-600 dark:text-zinc-400 mt-3 leading-relaxed">
+                        Madrid prepare for another European final as
+                        Vinicius Jr and Bellingham dominate the spotlight.
+                    </p>
                 </div>
             </div>
-        </div>
+
+            <!-- CARD -->
+            <div class="team-card bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-xl"
+                data-team="manchester city premier league england">
+
+                <img src="https://images.unsplash.com/photo-1518604666860-9ed391f76460?q=80&w=1200&auto=format&fit=crop"
+                    class="w-full h-56 object-cover"
+                    alt="Football crowd">
+
+                <div class="p-6">
+
+                    <div class="text-xs uppercase tracking-widest font-black text-blue-500">
+                        Premier League
+                    </div>
+
+                    <h2 class="text-3xl font-black mt-2">
+                        Manchester City
+                    </h2>
+
+                    <p class="text-zinc-600 dark:text-zinc-400 mt-3 leading-relaxed">
+                        Pep Guardiola's side continues its hunt
+                        for another historic treble season.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CARD -->
+            <div class="team-card bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-xl"
+                data-team="bayern munich bundesliga germany">
+
+                <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=1200&auto=format&fit=crop"
+                    class="w-full h-56 object-cover"
+                    alt="Football lights">
+
+                <div class="p-6">
+
+                    <div class="text-xs uppercase tracking-widest font-black text-orange-500">
+                        Bundesliga
+                    </div>
+
+                    <h2 class="text-3xl font-black mt-2">
+                        Bayern Munich
+                    </h2>
+
+                    <p class="text-zinc-600 dark:text-zinc-400 mt-3 leading-relaxed">
+                        Bayern rebuild with elite attacking power
+                        ahead of another Champions League push.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CARD -->
+            <div class="team-card bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-xl"
+                data-team="inter milan serie a italy">
+
+                <img src="https://images.unsplash.com/photo-1508098682722-e99c643e7485?q=80&w=1200&auto=format&fit=crop"
+                    class="w-full h-56 object-cover"
+                    alt="Football arena">
+
+                <div class="p-6">
+
+                    <div class="text-xs uppercase tracking-widest font-black text-cyan-400">
+                        Serie A
+                    </div>
+
+                    <h2 class="text-3xl font-black mt-2">
+                        Inter Milan
+                    </h2>
+
+                    <p class="text-zinc-600 dark:text-zinc-400 mt-3 leading-relaxed">
+                        Inter remain one of Europe's most balanced
+                        and dangerous tactical teams.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CARD -->
+            <div class="team-card bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-xl"
+                data-team="psg paris saint germain ligue 1 france">
+
+                <img src="https://images.unsplash.com/photo-1486286701208-1d58e9338013?q=80&w=1200&auto=format&fit=crop"
+                    class="w-full h-56 object-cover"
+                    alt="Football pitch">
+
+                <div class="p-6">
+
+                    <div class="text-xs uppercase tracking-widest font-black text-pink-500">
+                        Ligue 1
+                    </div>
+
+                    <h2 class="text-3xl font-black mt-2">
+                        PSG
+                    </h2>
+
+                    <p class="text-zinc-600 dark:text-zinc-400 mt-3 leading-relaxed">
+                        Paris chase European immortality with
+                        a new generation of attacking stars.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CARD -->
+            <div class="team-card bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-xl"
+                data-team="arsenal premier league england">
+
+                <img src="https://images.unsplash.com/photo-1547347298-4074fc3086f0?q=80&w=1200&auto=format&fit=crop"
+                    class="w-full h-56 object-cover"
+                    alt="Football match">
+
+                <div class="p-6">
+
+                    <div class="text-xs uppercase tracking-widest font-black text-red-400">
+                        Premier League
+                    </div>
+
+                    <h2 class="text-3xl font-black mt-2">
+                        Arsenal
+                    </h2>
+
+                    <p class="text-zinc-600 dark:text-zinc-400 mt-3 leading-relaxed">
+                        Arteta's young core is turning Arsenal into
+                        serious European contenders once again.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DREAM FIXTURES -->
+        <section class="mb-16">
+
+            <div class="flex items-center gap-3 mb-8">
+                <div class="w-2 h-8 bg-purple-500 rounded-full"></div>
+
+                <h2 class="text-4xl font-black tracking-tight">
+                    DREAM MATCH FIXTURES
+                </h2>
+            </div>
+
+            <p class="text-zinc-600 dark:text-zinc-400 text-lg mb-8 max-w-3xl">
+                Football fans dream about impossible matchups every year.
+                Which one would break the internet if it finally happened?
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+
+                <!-- FIXTURE -->
+                <div class="fixture-card bg-gradient-to-br from-zinc-950 to-black border border-zinc-800 rounded-3xl p-8 shadow-2xl">
+
+                    <div class="text-xs uppercase tracking-widest text-purple-400 font-black">
+                        Dream Fixture
+                    </div>
+
+                    <h3 class="text-4xl font-black mt-4">
+                        Arsenal vs Napoli
+                    </h3>
+
+                    <p class="mt-4 text-zinc-400 leading-relaxed">
+                        Two attacking systems. Two passionate fanbases.
+                        One unforgettable European night.
+                    </p>
+
+                    <div class="mt-6">
+                        <button onclick="dreamReaction('fixture1')"
+                            class="px-5 py-3 rounded-xl bg-purple-500 hover:bg-purple-600 transition-all font-black">
+                            I'd Watch This 🔥
+                        </button>
+
+                        <div id="fixture1"
+                            class="hidden mt-4 text-green-400 font-bold text-sm">
+                            Fans are hyped for this dream matchup ⚽
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FIXTURE -->
+                <div class="fixture-card bg-gradient-to-br from-zinc-950 to-black border border-zinc-800 rounded-3xl p-8 shadow-2xl">
+
+                    <div class="text-xs uppercase tracking-widest text-orange-400 font-black">
+                        Never Met Before
+                    </div>
+
+                    <h3 class="text-4xl font-black mt-4">
+                        PSG vs Bayer Leverkusen
+                    </h3>
+
+                    <p class="mt-4 text-zinc-400 leading-relaxed">
+                        Xabi Alonso's tactical brilliance against
+                        Parisian superstar power.
+                    </p>
+
+                    <div class="mt-6">
+                        <button onclick="dreamReaction('fixture2')"
+                            class="px-5 py-3 rounded-xl bg-orange-500 hover:bg-orange-600 transition-all font-black">
+                            Massive Clash ⚡
+                        </button>
+
+                        <div id="fixture2"
+                            class="hidden mt-4 text-green-400 font-bold text-sm">
+                            The football community wants this match now 🔥
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAN POLL -->
+        <section class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-8 shadow-xl">
+
+            <div class="text-center">
+
+                <div class="text-xs uppercase tracking-[0.3em] text-red-500 font-black">
+                    Fan Prediction
+                </div>
+
+                <h2 class="text-4xl font-black mt-4">
+                    WHO WILL WIN THE UCL?
+                </h2>
+
+                <p class="text-zinc-500 dark:text-zinc-400 mt-3">
+                    Vote now and join the football debate.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-5 mt-10">
+
+                <button onclick="voteClub('Madrid')"
+                    class="bg-zinc-100 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 p-6 rounded-2xl font-black hover:border-red-500 hover:text-red-500 transition-all">
+                    Real Madrid
+                </button>
+
+                <button onclick="voteClub('City')"
+                    class="bg-zinc-100 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 p-6 rounded-2xl font-black hover:border-blue-500 hover:text-blue-500 transition-all">
+                    Manchester City
+                </button>
+
+                <button onclick="voteClub('Bayern')"
+                    class="bg-zinc-100 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 p-6 rounded-2xl font-black hover:border-orange-500 hover:text-orange-500 transition-all">
+                    Bayern Munich
+                </button>
+            </div>
+
+            <div id="voteResult"
+                class="hidden text-center mt-6 text-green-500 font-black">
+                ✓ Your vote has been recorded successfully!
+            </div>
+        </section>
     </main>
 
-    <div class="fixed bottom-4 right-4 text-zinc-400 dark:text-zinc-500 text-[10px] font-mono tracking-widest uppercase">legendary ace</div>
+    <!-- FOOTER -->
+    <div class="fixed bottom-5 right-5 text-zinc-500 dark:text-zinc-600 text-[11px] font-black tracking-[0.3em] uppercase">
+        European Football Hub
+    </div>
 
+    <!-- JAVASCRIPT -->
     <script>
-        function toggleTheme() { document.body.classList.toggle('dark'); }
-        function castVote() { document.getElementById('vote-receipt').classList.remove('hidden'); }
+
+        // THEME TOGGLE
+        function toggleTheme() {
+
+            document.documentElement.classList.toggle('dark');
+
+            localStorage.setItem(
+                'theme',
+                document.documentElement.classList.contains('dark')
+                    ? 'dark'
+                    : 'light'
+            );
+        }
+
+        // LOAD THEME
+        window.onload = () => {
+
+            if (localStorage.getItem('theme') === 'light') {
+
+                document.documentElement.classList.remove('dark');
+
+            } else {
+
+                document.documentElement.classList.add('dark');
+            }
+        };
+
+        // SEARCH TEAMS
         function searchTeams() {
-            const query = document.getElementById('teamSearch').value.toLowerCase();
-            document.querySelectorAll('.team-item').forEach(item => {
-                item.style.display = item.getAttribute('data-team').toLowerCase().includes(query) ? 'flex' : 'none';
+
+            const query =
+                document.getElementById('teamSearch')
+                .value
+                .toLowerCase();
+
+            const cards =
+                document.querySelectorAll('.team-card');
+
+            cards.forEach(card => {
+
+                const team =
+                    card.getAttribute('data-team')
+                    .toLowerCase();
+
+                if (team.includes(query)) {
+
+                    card.style.display = 'block';
+
+                } else {
+
+                    card.style.display = 'none';
+                }
             });
         }
+
+        // DREAM FIXTURE REACTION
+        function dreamReaction(id) {
+
+            document.getElementById(id)
+                .classList.remove('hidden');
+        }
+
+        // UCL VOTE
+        function voteClub(club) {
+
+            document.getElementById('voteResult')
+                .classList.remove('hidden');
+        }
+
     </script>
+
 </body>
 </html>
